@@ -58,3 +58,15 @@ nav.active{
   pointer-events:none;
   border:0;
 }
+
+.div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+#p5canvas {
+  margin: 0;
+  background-color: #bbacc1;
+  background: linear-gradient(124deg, #bbacc1 0%, #F7D1CD 75%);
+}

@@ -15,12 +15,12 @@ function setup() {
   // set the width & height of the sketch
   createCanvas(600, 600, WEBGL);
   graphics = createGraphics(200, 200);
-  // graphics.background(190);
+  // graphics.background(100);
 
   words = createGraphics(300, 300);
-  words.fill(200);
+  words.fill(100);
   words.textAlign(CENTER);
-  words.textSize(20);
+  words.textSize(50);
   words.text('test', 100, 100);
 }
   // print the time to the console once at the beginning of the run. try opening up the
