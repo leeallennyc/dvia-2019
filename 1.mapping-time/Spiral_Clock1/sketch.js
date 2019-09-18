@@ -51,7 +51,7 @@ function draw() {
   stroke (60, 100, 100);
   noFill();
   let daysPerWeekAngle = map (day, 0, 7, 0, 360);
-  arc(0, 0, 400, 400, 0, daysPerWeekAngle);
+  arc(0, 0, 350, 350, 0, daysPerWeekAngle);
 
  // Setting the position, radius and color of Hours
   strokeWeight(10);
