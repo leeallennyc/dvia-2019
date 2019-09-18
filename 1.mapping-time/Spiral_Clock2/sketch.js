@@ -41,7 +41,7 @@ function draw() {
 
   // Setting the position, radius and color of Month
   strokeWeight(20);
-  stroke (45, 255 , 23);
+  stroke (20, 20, 20);
   noFill();
   let monthAngle = map (month, 0, 12, 0, 360);
   arc(0, 0, 400, 400, 0, monthAngle);
@@ -49,14 +49,14 @@ function draw() {
 
    // Setting the position, radius and color of Days
   strokeWeight(15);
-  stroke (60, 100, 100);
+  stroke (40, 40, 40);
   noFill();
   let daysPerWeekAngle = map (day, 0, 7, 0, 360);
   arc(0, 0, 350, 350, 0, daysPerWeekAngle);
 
  // Setting the position, radius and color of Hours
   strokeWeight(10);
-  stroke(255, 0, 0);
+  stroke(60, 60, 60);
   noFill();
   let hourAngle = map (hour % 12, 0, 12, 0, 360);
   arc(0, 0, 300, 300, 0, hourAngle); 
@@ -64,14 +64,14 @@ function draw() {
 
  // Setting the position, radius and color of Min
   strokeWeight(10);
-  stroke(50, 35, 68);
+  stroke(80, 80, 80);
   noFill();
   let minAngle = map (min, 0, 60, 0, 360);
   arc(0, 0, 250, 250, 0, minAngle);
 
    // Setting the position, radius and color of Secs
   strokeWeight(10);
-  stroke(0,0,180);
+  stroke(100, 100, 100);
   noFill();
   let secondAngle = map (sec, 0, 60, 0, 360);
   arc(0, 0, 200, 200, 0, secondAngle);
