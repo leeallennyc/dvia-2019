@@ -59,14 +59,12 @@ nav.active{
   border:0;
 }
 
-.div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.container {
+  position: relative;
+}
 
-#p5canvas {
-  margin: 0;
-  background-color: #bbacc1;
-  background: linear-gradient(124deg, #bbacc1 0%, #F7D1CD 75%);
+#overlay {
+  position: absolute;
+  left: 100px;
+  top: 100px;
 }
