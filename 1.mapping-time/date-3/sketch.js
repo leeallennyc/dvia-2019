@@ -56,7 +56,7 @@ function draw() {
   frameRate(60);
   rotateY(angle1);
   sphere (150, 150, 150, 150);
-  angle1 += .02;
+  angle1 += .01;
   texture(message);
   
 
