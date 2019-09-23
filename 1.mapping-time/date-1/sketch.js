@@ -20,7 +20,7 @@ for (let i = 0; i < 20; i++) {
 // Set up 720 "ticks"/minutes for spiral
   for (let i = 0;  i < 720; i ++){
     let a = .5;
-    let r1 = 20;
+    let r1 = 25;
     let r2 = 0;
     let x1 = r1+i/6 * cos(a);
     let x2 = r2+i/6 * cos(a);
