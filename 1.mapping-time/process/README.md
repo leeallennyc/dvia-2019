@@ -10,6 +10,7 @@ Some sketches are included in the Process Folder.
 * DataVisualization_Aesthetics_Week2_ClockSketches.pdf 
 * DataVisualization_Aesthetics_Week3_ClockSketches.pdf
 * DataVisualization_Aesthetics_Week4_FollowUp_Sketches.pdf
+* DataVisualization_Aesthetics_Week4_AdditionalSketches.pdf
 * Spiraltime_Sketches.pdf are used as reference for the coming work.
 
 ### Retinal variables Pdf from Week 1
