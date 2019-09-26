@@ -1,4 +1,5 @@
 
+
 function setup() {
   createCanvas(500,500);
   rectMode(CENTER);
@@ -6,6 +7,7 @@ function setup() {
 
 // Setting to Degrees instead of Radians
 function draw() {
+  let now = clock();
   angleMode(DEGREES);
   translate(250, 250);
   background(0);
@@ -21,7 +23,7 @@ function draw() {
 
 // Set up 720 "ticks"/minutes for 12 hour Spiral
   for (let i = 0;  i < 720; i ++){
-    let a = .5;
+    let a = .5 + 1.5 * now.progress.hour;
     let r1 = 25;
     let r2 = 0;
     let x1 = r1+i/6 * cos(a);

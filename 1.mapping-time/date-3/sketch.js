@@ -6,10 +6,13 @@ function setup() {
 
 // Setting to Degrees instead of Radians
 function draw() {
+  let now = clock();
   angleMode(DEGREES);
   translate(250, 250);
   background(255, 0, 0);
   noFill();
+
+  
 
 // Created a grid underlay 
 // for (let i = 0; i < 20; i++) {
@@ -21,7 +24,7 @@ function draw() {
 
 // Set up 720 "ticks"/minutes for 12 hour Spiral
 for (let i = 0;  i < 180; i ++){
-  let a = 45;
+  let a = 45 - 3 * now.progress.day;
   let r1 = 0;
   let r2 = 0;
   let x1 = r1+i * cos(a);
