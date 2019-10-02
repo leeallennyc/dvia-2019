@@ -17,7 +17,7 @@ Some sketches are included in the Process Folder.
 This Pdf. was included as a reference to the visual vocabulary used. 
 
 ### Summary
-The final clock created investigates the nature of spirals and circual time.
+The final clock created investigates the nature of spirals and circular time.
 The inner red radial hand sweeps around indicating seconds passed.
 The middle red radial arc sweeps to indicate minutes in the day.
 The outer red radial arc sweeps to indicate hours passed over 24 hours (Military Time).
