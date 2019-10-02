@@ -32,7 +32,7 @@ function draw() {
   for (let i = 0; i < 720; i ++){
     let a = 10 +.5 * now.progress.month;
     let r1 = 3;
-    let r2 = 2 + 1 / now.progress.min;
+    let r2 = 2;
     let x1 = r1+i * cos(a);
     let x2 = r2+i * cos(a);
     let y1 = r1+i * sin(a);

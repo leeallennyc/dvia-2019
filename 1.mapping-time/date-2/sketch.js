@@ -10,7 +10,7 @@ function draw() {
   let now = clock();
   angleMode(DEGREES);
   translate(250, 250);
-  background(0);
+  background(255);
   noFill();
 
 // Created a grid underlay 
@@ -23,14 +23,14 @@ function draw() {
 
 // Set up 720 "ticks"/minutes for 12 hour Spiral
   for (let i = 0;  i < 720; i ++){
-    let a = .5 + 1.5 * now.progress.hour;
-    let r1 = 25;
-    let r2 = 0;
-    let x1 = r1+i/6 * cos(a);
-    let x2 = r2+i/6 * cos(a);
+    let a = 2 * now.progress.min;
+    let r1 = 1 * now.progress.month;
+    let r2 = 1 * now.progress.month;
+    let x1 = r1+i/3 * cos(a);
+    let x2 = r2+i/2* cos(a);
     let y1 = r2+i * sin(a);
     let y2 = r2*i * sin(a);
-    stroke(255);
+    stroke(0);
     rotate(a + i/720);  
     line (x1, y1, x2, y2);
   }

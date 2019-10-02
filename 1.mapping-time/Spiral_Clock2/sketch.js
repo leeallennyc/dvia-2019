@@ -1,4 +1,4 @@
-// Elements adapted from p5.js tutorial: Coding Challenge #74: Clock with p5.js with Ben Shiffman
+// Elements adapted from p5.js tutorial: Coding Challenge #74: Clock with p5.js with DanShiffman
 // Source: https://www.youtube.com/watch?v=E4RyStef-gY
 
 function setup() {
@@ -18,6 +18,7 @@ function draw() {
 
   const now = clock();
   let hour = now.hour;
+  let hours  = now.hours;
   let min = now.min;
   let sec = now.sec;
   let day = now.day;
@@ -58,7 +59,7 @@ function draw() {
   strokeWeight(10);
   stroke(60, 60, 60);
   
-  let hourAngle = map (hour % 12, 0, 12, 0, 360);
+  let hourAngle = map (hours, 0, 23, 0, 360);
   arc(0, 0, 300, 300, 0, hourAngle); 
 
 
