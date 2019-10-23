@@ -42,7 +42,7 @@ function setup(){
     rect(x, y, dim, dim)
 
     // draw the year number on top
-    fill('white')
+    fill(0,0,0,75)
     text(years[i], x+dim*.5, y+dim*.6)
     x+=dim
   }

@@ -1,0 +1,330 @@
+country,date,type,shot,yield,iodine131-released
+usa,7/16/1945,Atmospheric,Trinity,21,3087
+usa,8/5/1945,Atmospheric,Little Boy,15,2205
+usa,8/9/1945,Atmospheric,Fat Man,21,3087
+usa,6/30/1946,Atmospheric,Able,21,3087
+usa,7/24/1946,Underwater,Baker,21,0
+usa,4/14/1948,Atmospheric,X-ray,37,5439
+usa,4/30/1948,Atmospheric,Yoke,49,7203
+usa,5/14/1948,Atmospheric,Zebra,18,2646
+usa,1/27/1951,Atmospheric,Able,1,140
+usa,1/28/1951,Atmospheric,Baker,8,1300
+usa,2/1/1951,Atmospheric,Easy,1,100
+usa,2/2/1951,Atmospheric,Baker-2,8,1300
+usa,2/6/1951,Atmospheric,Fox,22,3200
+usa,4/7/1951,Atmospheric,Dog,81,11907
+usa,4/20/1951,Atmospheric,Easy,47,6909
+usa,5/8/1951,Atmospheric,George,225,33075
+usa,5/24/1951,Atmospheric,Item,46,6689
+usa,10/22/1951,Atmospheric,Able,0,7
+usa,10/28/1951,Atmospheric,Baker,4,600
+usa,10/30/1951,Atmospheric,Charlie,14,2000
+usa,11/1/1951,Atmospheric,Dog,21,3100
+usa,11/5/1951,Atmospheric,Easy,31,4500
+usa,11/19/1951,Atmospheric,Sugar,1,170
+usa,11/29/1951,Crater,Uncle,1,170
+usa,4/1/1952,Atmospheric,Able,1,140
+usa,4/15/1952,Atmospheric,Baker,1,140
+usa,4/22/1952,Atmospheric,Charlie,31,4600
+usa,5/1/1952,Atmospheric,Dog,19,2900
+usa,5/7/1952,Atmospheric,Easy,12,1800
+usa,5/25/1952,Atmospheric,Fox,11,1600
+usa,6/1/1952,Atmospheric,George,15,2200
+usa,6/5/1952,Atmospheric,How,14,2100
+usa,10/31/1952,Atmospheric,Mike,10400,1528800
+usa,11/15/1952,Atmospheric,King,500,73500
+usa,3/17/1953,Atmospheric,Annie,16,2400
+usa,3/24/1953,Atmospheric,Nancy,24,3600
+usa,3/31/1953,Atmospheric,Ruth,0,28
+usa,4/6/1953,Atmospheric,Dixie,11,1700
+usa,4/11/1953,Atmospheric,Ray,0,28
+usa,4/18/1953,Atmospheric,Badger,23,3600
+usa,4/25/1953,Atmospheric,Simon,43,6800
+usa,5/8/1953,Atmospheric,Encore,27,3900
+usa,5/19/1953,Atmospheric,Harry,32,4600
+usa,5/25/1953,Atmospheric,Grable,15,2100
+usa,6/4/1953,Atmospheric,Climax,61,8600
+usa,2/28/1954,Atmospheric,Bravo,15000,2205000
+usa,3/26/1954,Atmospheric,Romeo,11000,1617000
+usa,4/6/1954,Atmospheric,Koon,110,16170
+usa,4/25/1954,Atmospheric,Union,6900,1014300
+usa,5/4/1954,Atmospheric,Yankee,13500,1984500
+usa,5/13/1954,Atmospheric,Nectar,1690,248430
+usa,2/18/1955,Atmospheric,Wasp,1,160
+usa,2/22/1955,Atmospheric,Moth,2,320
+usa,3/1/1955,Atmospheric,Tesla,7,1200
+usa,3/7/1955,Atmospheric,Turk,43,6400
+usa,3/12/1955,Atmospheric,Hornet,4,620
+usa,3/22/1955,Atmospheric,Bee,8,1200
+usa,3/23/1955,Crater,Ess,1,140
+usa,3/29/1955,Atmospheric,Apple-1,14,2000
+usa,3/29/1955,Atmospheric,Wasp Prime,3,450
+usa,4/6/1955,Atmospheric,HA (High Altitude),3,450
+usa,4/9/1955,Atmospheric,Post,2,340
+usa,4/15/1955,Atmospheric,MET (Military Effects T,22,3100
+usa,5/5/1955,Atmospheric,Apple-2,29,4100
+usa,5/14/1955,Underwater,Wigwam,30,4410
+usa,5/15/1955,Atmospheric,Zucchini,28,4000
+usa,11/1/1955,Atmospheric,Project 56 No. 1,0,0
+usa,11/3/1955,Atmospheric,Project 56 No. 2,0,0
+usa,11/5/1955,Atmospheric,Project 56 No. 3,0,0
+usa,1/18/1956,Atmospheric,Project 56 No. 4,0,0
+usa,5/4/1956,Atmospheric,Lacrosse,40,5880
+usa,5/20/1956,Atmospheric,Cherokee,3800,558600
+usa,5/27/1956,Atmospheric,Zuni,3500,514500
+usa,5/27/1956,Atmospheric,Yuma,0,28
+usa,5/30/1956,Atmospheric,Erie,15,2190
+usa,6/6/1956,Atmospheric,Seminole,14,2014
+usa,6/11/1956,Atmospheric,Flathead,365,53655
+usa,6/11/1956,Atmospheric,Blackfoot,8,1176
+usa,6/13/1956,Atmospheric,Kickapoo,1,219
+usa,6/16/1956,Atmospheric,Osage,2,250
+usa,6/21/1956,Atmospheric,Inca,15,2234
+usa,6/25/1956,Atmospheric,Dakota,1100,161700
+usa,7/2/1956,Atmospheric,Mohawk,360,52920
+usa,7/8/1956,Atmospheric,Apache,1850,271950
+usa,7/10/1956,Atmospheric,Navajo,4500,661500
+usa,7/20/1956,Atmospheric,Tewa,5000,735000
+usa,7/21/1956,Atmospheric,Huron,250,36750
+usa,4/24/1957,Atmospheric,Project 57 No. 1,0,0
+usa,5/28/1957,Atmospheric,Boltzmann,12,1900
+usa,6/2/1957,Atmospheric,Franklin,0,19
+usa,6/5/1957,Atmospheric,Lassen,0,0
+usa,6/18/1957,Atmospheric,Wilson,10,1500
+usa,6/24/1957,Atmospheric,Priscilla,37,5900
+usa,7/1/1957,Atmospheric,Coulomb-A,0,0
+usa,7/5/1957,Atmospheric,Hood,74,11000
+usa,7/15/1957,Atmospheric,Diablo,17,2500
+usa,7/19/1957,Atmospheric,John,2,6100
+usa,7/24/1957,Atmospheric,Kepler,10,1700
+usa,7/25/1957,Atmospheric,Owens,10,1700
+usa,7/26/1957,Underground,Pascal-A,0,10
+usa,8/7/1957,Atmospheric,Stokes,19,2800
+usa,8/10/1957,Underground,Saturn,0,0
+usa,8/18/1957,Atmospheric,Shasta,17,2500
+usa,8/23/1957,Atmospheric,Doppler,11,1700
+usa,8/27/1957,Underground,Pascal-B,0,0
+usa,8/30/1957,Atmospheric,Franklin Prime,5,690
+usa,8/31/1957,Atmospheric,Smoky,44,6400
+usa,9/2/1957,Atmospheric,Galileo,11,1900
+usa,9/6/1957,Atmospheric,Wheeler,0,27
+usa,9/6/1957,Atmospheric,Coulomb-B,0,42
+usa,9/8/1957,Atmospheric,Laplace,1,140
+usa,9/14/1957,Atmospheric,Fizeau,11,1700
+usa,9/16/1957,Atmospheric,Newton,12,2100
+usa,9/19/1957,Underground,Rainier,2,0
+usa,9/23/1957,Atmospheric,Whitney,19,2900
+usa,9/28/1957,Atmospheric,Charleston,12,1800
+usa,10/7/1957,Atmospheric,Morgan,8,1200
+usa,12/6/1957,Underground,Pascal-C,0,0
+usa,12/9/1957,Atmospheric,Coulomb-C,1,69
+usa,2/22/1958,Underground,Venus,0,0
+usa,3/14/1958,Underground,Uranus,0,0
+usa,4/28/1958,Atmospheric,Yucca,2,250
+usa,5/5/1958,Atmospheric,Cactus,18,2646
+usa,5/11/1958,Atmospheric,Fir,1360,199920
+usa,5/11/1958,Atmospheric,Butternut,81,11907
+usa,5/12/1958,Atmospheric,Koa,1370,201390
+usa,5/16/1958,Underwater,Wahoo,9,0
+usa,5/20/1958,Atmospheric,Holly,6,867
+usa,5/21/1958,Atmospheric,Nutmeg,25,3690
+usa,5/26/1958,Atmospheric,Yellowwood,330,48510
+usa,5/26/1958,Atmospheric,Magnolia,57,8379
+usa,5/30/1958,Atmospheric,Tobacco,12,1705
+usa,5/31/1958,Atmospheric,Sycamore,92,13524
+usa,6/2/1958,Atmospheric,Rose,15,2205
+usa,6/8/1958,Underwater,Umbrella,8,1176
+usa,6/10/1958,Atmospheric,Maple,213,31311
+usa,6/14/1958,Atmospheric,Aspen,319,46893
+usa,6/14/1958,Atmospheric,Walnut,1450,213150
+usa,6/18/1958,Atmospheric,Linden,11,1617
+usa,6/27/1958,Atmospheric,Redwood,412,60564
+usa,6/27/1958,Atmospheric,Elder,880,129360
+usa,6/28/1958,Atmospheric,Oak,8900,1308300
+usa,6/29/1958,Atmospheric,Hickory,14,2058
+usa,7/1/1958,Atmospheric,Sequoia,5,764
+usa,7/2/1958,Atmospheric,Cedar,220,32340
+usa,7/5/1958,Atmospheric,Dogwood,397,58359
+usa,7/12/1958,Atmospheric,Poplar,9300,1367100
+usa,7/14/1958,Atmospheric,Scaevola,0,0
+usa,7/17/1958,Atmospheric,Pisonia,255,37485
+usa,7/22/1958,Atmospheric,Juniper,65,9555
+usa,7/22/1958,Atmospheric,Olive,202,29694
+usa,7/26/1958,Atmospheric,Pine,2000,294000
+usa,8/1/1958,Atmospheric,Teak,3800,558600
+usa,8/6/1958,Atmospheric,Quince,0,0
+usa,8/12/1958,Atmospheric,Orange,3800,558600
+usa,8/18/1958,Atmospheric,Fig,0,3
+usa,8/27/1958,Atmospheric,Argus I,2,221
+usa,8/30/1958,Atmospheric,Argus II,2,221
+usa,9/6/1958,Atmospheric,Argus III,2,221
+usa,9/12/1958,Underground,Otero,0,6
+usa,9/17/1958,Underground,Bernalillo,0,0
+usa,9/19/1958,Atmospheric,Eddy,0,12
+usa,9/21/1958,Underground,Luna,0,0
+usa,9/23/1958,Underground,Mercury,0,0
+usa,9/26/1958,Underground,Valencia,0,0
+usa,9/28/1958,Underground,Mars,0,0
+usa,9/29/1958,Atmospheric,Mora,2,340
+usa,10/5/1958,Atmospheric,Hidalgo,0,11
+usa,10/5/1958,Underground,Colfax,0,0
+usa,10/8/1958,Underground,Tamalpais,0,0
+usa,10/10/1958,Atmospheric,Quay,0,11
+usa,10/13/1958,Atmospheric,Lea,1,240
+usa,10/14/1958,Underground,Neptune,0,0
+usa,10/15/1958,Atmospheric,Hamilton,0,0
+usa,10/16/1958,Underground,Logan,5,0
+usa,10/16/1958,Atmospheric,Dona Ana,0,6
+usa,10/17/1958,Atmospheric,Vesta,0,4
+usa,10/18/1958,Atmospheric,Rio Arriba,0,120
+usa,10/20/1958,Underground,San Juan,0,0
+usa,10/22/1958,Atmospheric,Socorro,6,1000
+usa,10/22/1958,Atmospheric,Wrangell,0,17
+usa,10/22/1958,Atmospheric,Oberon,0,0
+usa,10/22/1958,Atmospheric,Rushmore,0,17
+usa,10/24/1958,Atmospheric,Catron,0,4
+usa,10/24/1958,Atmospheric,Juno,0,0
+usa,10/26/1958,Atmospheric,Ceres,0,0
+usa,10/26/1958,Atmospheric,Sanford,5,750
+usa,10/26/1958,Atmospheric,De Baca,2,380
+usa,10/27/1958,Atmospheric,Chavez,0,0
+usa,10/29/1958,Underground,Evans,0,0
+usa,10/29/1958,Atmospheric,Mazama,0,0
+usa,10/29/1958,Atmospheric,Humboldt,0,0
+usa,10/30/1958,Atmospheric,Santa Fe,1,220
+usa,10/30/1958,Atmospheric,Ganymede,0,0
+usa,10/30/1958,Underground,Blanca,22,1
+usa,10/30/1958,Atmospheric,Titania,0,0
+usa,9/15/1961,Underground,Antler,3,0
+usa,9/16/1961,Underground,Shrew,0,0
+usa,10/1/1961,Underground,Boomer,0,0
+usa,10/10/1961,Underground,Chena,0,0
+usa,10/29/1961,Underground,Mink,0,0
+usa,12/3/1961,Underground,Fisher,13,0
+usa,12/10/1961,Underground,Gnome,3,0
+usa,12/13/1961,Underground,Mad,1,0
+usa,12/17/1961,Underground,Ringtail,20,0
+usa,12/22/1961,Underground,Feather,0,0
+usa,1/9/1962,Underground,Stoat,5,0
+usa,1/18/1962,Underground,Agouti,6,0
+usa,1/30/1962,Underground,Dormouse,10,0
+usa,2/8/1962,Underground,Stillwater,3,0
+usa,2/9/1962,Underground,Armadillo,7,0
+usa,2/15/1962,Underground,Hard Hat,6,0
+usa,2/19/1962,Underground,Chinchilla I,2,0
+usa,2/19/1962,Underground,Codsaw,2,0
+usa,2/23/1962,Underground,Cimarron,12,0
+usa,2/24/1962,Crater,Platypus,0,0
+usa,3/5/1962,Underground,Danny Boy,0,73
+usa,3/6/1962,Underground,Ermine,0,0
+usa,3/8/1962,Underground,Brazos,8,0
+usa,3/15/1962,Underground,Hognose,8,0
+usa,3/28/1962,Underground,Hoosic,3,0
+usa,3/31/1962,Underground,Chinchilla II,2,0
+usa,4/5/1962,Underground,Dormouse Prime,11,0
+usa,4/6/1962,Underground,Passaic,9,0
+usa,4/12/1962,Underground,Hudson,1,0
+usa,4/14/1962,Underground,Platte,2,0
+usa,4/21/1962,Underground,Dead,3,0
+usa,4/25/1962,Atmospheric,Adobe,190,0
+usa,4/27/1962,Atmospheric,Aztec,410,0
+usa,4/27/1962,Underground,Black,5,0
+usa,5/2/1962,Atmospheric,Arkansas,1090,0
+usa,5/4/1962,Atmospheric,Questa,670,0
+usa,5/6/1962,Atmospheric,Frigate Bird,600,0
+usa,5/7/1962,Underground,Paca,8,0
+usa,5/8/1962,Atmospheric,Yukon,100,0
+usa,5/9/1962,Atmospheric,Mesilla,100,0
+usa,5/10/1962,Underground,Arikaree,0,0
+usa,5/11/1962,Atmospheric,Muskegon,50,0
+usa,5/11/1962,Underwater,Swordfish,0,0
+usa,5/12/1962,Atmospheric,Encino,500,0
+usa,5/12/1962,Underground,Aardvark,40,0
+usa,5/14/1962,Atmospheric,Swanee,97,0
+usa,5/19/1962,Underground,Eel,5,0
+usa,5/19/1962,Atmospheric,Chetco,73,0
+usa,5/25/1962,Underground,White,8,0
+usa,5/25/1962,Atmospheric,Tanana,3,0
+usa,5/27/1962,Atmospheric,Nambe,43,0
+usa,6/1/1962,Underground,Raccoon,3,0
+usa,6/6/1962,Underground,Packrat,13,0
+usa,6/8/1962,Atmospheric,Alma,782,0
+usa,6/9/1962,Atmospheric,Truckee,210,0
+usa,6/10/1962,Atmospheric,Yeso,3000,0
+usa,6/12/1962,Atmospheric,Harlem,1200,0
+usa,6/13/1962,Underground,Des Moines,3,33
+usa,6/15/1962,Atmospheric,Rinconada,800,0
+usa,6/17/1962,Atmospheric,Dulce,52,0
+usa,6/19/1962,Atmospheric,Petit,2,0
+usa,6/21/1962,Underground,Daman I,11,0
+usa,6/22/1962,Atmospheric,Otowi,82,0
+usa,6/27/1962,Atmospheric,Bighorn,7650,0
+usa,6/27/1962,Underground,Haymaker,67,0
+usa,6/28/1962,Underground,Marshmallow,0,0
+usa,6/30/1962,Atmospheric,Bluestone,1270,0
+usa,6/30/1962,Underground,Sacramento,4,0
+usa,7/6/1962,Crater,Sedan,104,880
+usa,7/7/1962,Atmospheric,Little Feller II,0,0
+usa,7/9/1962,Atmospheric,Starfish Prime,1400,0
+usa,7/10/1962,Atmospheric,Sunset,1000,0
+usa,7/11/1962,Atmospheric,Pamlico,3880,0
+usa,7/11/1962,Crater,Johnnie Boy,1,70
+usa,7/13/1962,Underground,Merrimac,20,0
+usa,7/14/1962,Atmospheric,Small Boy,1,270
+usa,7/17/1962,Atmospheric,Little Feller I,0,3
+usa,7/27/1962,Underground,Wichita,4,0
+usa,8/24/1962,Underground,York,5,0
+usa,8/24/1962,Underground,Bobac,3,0
+usa,9/6/1962,Underground,Raritan,2,0
+usa,9/14/1962,Underground,Hyrax,5,0
+usa,9/20/1962,Underground,Peba,11,0
+usa,9/29/1962,Underground,Allegheny,1,0
+usa,10/2/1962,Atmospheric,Androscoggin,75,0
+usa,10/5/1962,Underground,Mississippi,115,0
+usa,10/6/1962,Atmospheric,Bumping,11,0
+usa,10/12/1962,Underground,Roanoke,7,0
+usa,10/12/1962,Underground,Wolverine,0,0
+usa,10/18/1962,Atmospheric,Chama,1590,0
+usa,10/18/1962,Underground,Tioga,0,0
+usa,10/19/1962,Underground,Bandicoot,13,9
+usa,10/20/1962,Atmospheric,Checkmate,0,0
+usa,10/26/1962,Atmospheric,Bluegill 3 Prime,400,0
+usa,10/27/1962,Underground,Santee,5,0
+usa,10/27/1962,Atmospheric,Calamity,800,0
+usa,10/30/1962,Atmospheric,Housatonic,8300,0
+usa,11/1/1962,Atmospheric,Kingfish,400,0
+usa,11/4/1962,Atmospheric,Tightrope,0,0
+usa,11/9/1962,Underground,St. Lawrence,0,0
+usa,11/15/1962,Underground,Gundi,0,0
+usa,11/27/1962,Underground,Anacostia,5,0
+usa,12/4/1962,Underground,Taunton,0,0
+usa,12/12/1962,Underground,Madison,0,0
+usa,12/12/1962,Underground,Numbat,11,0
+usa,12/14/1962,Underground,Manatee,0,0
+usa,2/8/1963,Underground,Casselman,6,0
+usa,2/8/1963,Underground,Hatchie,0,0
+usa,2/8/1963,Underground,Ferret,0,0
+usa,2/8/1963,Underground,Acushi,9,0
+usa,2/15/1963,Underground,Chipmunk,0,0
+usa,2/21/1963,Underground,Kaweah,3,0
+usa,2/21/1963,Underground,Carmel,0,0
+usa,3/1/1963,Underground,Jerboa,0,0
+usa,3/15/1963,Underground,Toyah,0,0
+usa,3/29/1963,Underground,Gerbil,11,0
+usa,4/5/1963,Underground,Ferret Prime,7,0
+usa,4/10/1963,Underground,Coypu,0,0
+usa,4/11/1963,Underground,Cumberland,6,0
+usa,4/24/1963,Underground,Kootanai,0,0
+usa,4/24/1963,Underground,Paisano,0,0
+usa,5/9/1963,Underground,Gundi Prime,8,0
+usa,5/15/1963,Atmospheric,Double Tracks,0,0
+usa,5/17/1963,Underground,Harkee,0,0
+usa,5/17/1963,Underground,Tejon,0,0
+usa,5/22/1963,Underground,Stones,20,0
+usa,5/25/1963,Atmospheric,Clean Slate I,0,0
+usa,5/29/1963,Underground,Pleasant,2,0
+usa,5/31/1963,Atmospheric,Clean Slate II,0,0
+usa,6/5/1963,Underground,Yuba,3,0
+usa,6/6/1963,Underground,Hutia,3,0
+usa,6/6/1963,Underground,Apshapa,0,0
+usa,6/9/1963,Atmospheric,Clean Slate III,0,0
