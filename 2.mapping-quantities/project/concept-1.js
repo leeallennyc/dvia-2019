@@ -6,6 +6,8 @@ var thyroidData;
 function preload(){
   sandpData = loadTable('data/sp-500-1945-1963.csv', 'csv', 'header');
   atmospheric = loadTable('data/usa-atmospheric-1945-1963.csv', 'csv', 'header');
+  highestYieldbyDate = loadTable('data/twenty-highest-yielding-nuclear-tests-by-date.csv', 'csv', 'header');
+  highestYieldbyYield = loadTable('data/twenty-highest-yielding-nuclear-tests-by-yield.csv', 'csv', 'header');
 }
  // setup 
 function setup(){
@@ -14,9 +16,15 @@ function setup(){
 
 // pick one of the three data files to work with and call it 'table'
   var table = atmospheric;
+  var table2 = sandpData;
+  var table3 = highestYieldbyDate;
+  var table4 = highestYieldbyYield;
 
-// log the whole dataset to the console so we can poke around in it
+// log 4 datasets to the console so we can poke around in it
   print(table);
+  print(table2);
+  print(table3);
+  print(table4);
 
 // set up typography
   textFont("Rokkitt");
