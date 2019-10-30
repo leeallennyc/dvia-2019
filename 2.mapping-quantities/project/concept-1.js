@@ -1,5 +1,6 @@
 
 
+
 let data;
 let atmospheric;
 let weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -16,7 +17,7 @@ function preload(){
  // setup 
 function setup(){
   createCanvas(2000, 5000);
-  background(240);
+  background(255);
 
 // pick one of the five data files to work with and call it 'table#'
   // let table = atmospheric;
@@ -79,74 +80,137 @@ function setup(){
   
     x = 200;
     y = 0; 
-    let increment = 40;
-    // let array = [];
-    
+    let increment = 30;
+
+    // Highlight any Bombs that were Tested on Monday
     for (let r=0; r < table5.getRowCount(); r++) {
-      // for (let c=0; c<1; c++){
-      let dayofWeek = table5.getString(r, 4);
-      text(dayofWeek, x, y+increment);
-      x += colWidth;
+      let dayofWeek = table5.getString(r, 4); 
+      if (dayofWeek === "Monday"){
+        fill(255,0,0,);
+        rect(x, y + increment, 10, 10);
+        // text(dayofWeek, x, y + increment);
+        x += colWidth;
+
+      } else { 
+        fill(0,0,255, 50);
+        rect(x, y +increment, 10, 10);
+        // text(dayofWeek, x, y + increment);
+        x += colWidth;
+      }
     }
   
     x = 200;
+    y = 40; 
+    // Highlight any Bombs that were Tested on Tuesday
+    for (let r=0; r < table5.getRowCount(); r++) {
+      let dayofWeek = table5.getString(r, 4); 
+      if (dayofWeek === "Tuesday"){
+        fill(255,0,0,);
+        rect(x, y + increment, 10, 10);
+        // text(dayofWeek, x, y + increment);
+        x += colWidth;
+
+      } else { 
+        fill(0,0,255, 50);
+        rect(x, y +increment, 10, 10);
+        // text(dayofWeek, x, y + increment);
+        x += colWidth;
+      }
+    }
+
+    x = 200;
     y = 80; 
-    for (let r=0; r<table5.getRowCount(); r++) {
-      // for (let c=0; c<1; c++){
-      let dayofWeek = table5.getString(r, 4);
-      text(dayofWeek, x, y);
-      // }
-      x += colWidth;
+    // Highlight any Bombs that were Tested on Wednesday
+    for (let r=0; r < table5.getRowCount(); r++) {
+      let dayofWeek = table5.getString(r, 4); 
+      if (dayofWeek === "Wednesday"){
+        fill(255,0,0,);
+        rect(x, y + increment, 10, 10);
+        // text(dayofWeek, x, y + increment);
+        x += colWidth;
+
+      } else { 
+        fill(0,0,255, 50);
+        rect(x, y +increment, 10, 10);
+        // text(dayofWeek, x, y + increment);
+        x += colWidth;
+      }
     }
 
     x = 200;
     y = 120; 
-    for (let r=0; r<table5.getRowCount(); r++) {
-      // for (let c=0; c<1; c++){
-      let dayofWeek = table5.getString(r, 4);
-      text(dayofWeek, x, y);
-      // }
-      x += colWidth;
+    // Highlight any Bombs that were Tested on Thursday
+    for (let r=0; r < table5.getRowCount(); r++) {
+      let dayofWeek = table5.getString(r, 4); 
+      if (dayofWeek === "Thursday"){
+        fill(255,0,0,);
+        rect(x, y + increment, 10, 10);
+        // text(dayofWeek, x, y + increment);
+        x += colWidth;
+
+      } else { 
+        fill(0,0,255, 50);
+        rect(x, y +increment, 10, 10);
+        // text(dayofWeek, x, y + increment);
+        x += colWidth;
+      }
     }
 
     x = 200;
     y = 160; 
-    for (let r=0; r<table5.getRowCount(); r++) {
-      // for (let c=0; c<1; c++){
-      let dayofWeek = table5.getString(r, 4);
-      text(dayofWeek, x, y);
-      // }
-      x += colWidth;
+    // Highlight any Bombs that were Tested on Friday
+    for (let r=0; r < table5.getRowCount(); r++) {
+      let dayofWeek = table5.getString(r, 4); 
+      if (dayofWeek === "Friday"){
+        fill(255,0,0,);
+        rect(x, y + increment, 10, 10);
+        // text(dayofWeek, x, y + increment);
+        x += colWidth;
+
+      } else { 
+        fill(0,0,255, 50);
+        rect(x, y +increment, 10, 10);
+        // text(dayofWeek, x, y + increment);
+        x += colWidth;
+      }
     }
 
     x = 200;
     y = 200; 
-    for (let r=0; r<table5.getRowCount(); r++) {
-      // for (let c=0; c<1; c++){
-      let dayofWeek = table5.getString(r, 4);
-      text(dayofWeek, x, y);
-      // }
-      x += colWidth;
+    // Highlight any Bombs that were Tested on Saturday
+    for (let r=0; r < table5.getRowCount(); r++) {
+      let dayofWeek = table5.getString(r, 4); 
+      if (dayofWeek === "Saturday"){
+        fill(255,0,0,);
+        rect(x, y + increment, 10, 10);
+        // text(dayofWeek, x, y + increment);
+        x += colWidth;
+
+      } else { 
+        fill(0,0,255, 50);
+        rect(x, y +increment, 10, 10);
+        // text(dayofWeek, x, y + increment);
+        x += colWidth;
+      }
     }
 
     x = 200;
     y = 240; 
-    for (let r=0; r<table5.getRowCount(); r++) {
-      // for (let c=0; c<1; c++){
-      let dayofWeek = table5.getString(r, 4);
-      text(dayofWeek, x, y);
-      // }
-      x += colWidth;
-    }
+    // Highlight any Bombs that were Tested on Sunday
+    for (let r=0; r < table5.getRowCount(); r++){
+      let dayofWeek = table5.getString(r, 4); 
+      if (dayofWeek === "Sunday"){
+        fill(255,0,0,);
+        rect(x, y + increment, 10, 10);
+        // text(dayofWeek, x, y + increment);
+        x += colWidth;
 
-    x = 200;
-    y = 280; 
-    for (let r=0; r<table5.getRowCount(); r++) {
-      // for (let c=0; c<1; c++){
-      let dayofWeek = table5.getString(r, 4);
-      text(dayofWeek, x, y);
-      // }
-      x += colWidth;
+      } else { 
+        fill(0,0,255, 50);
+        rect(x, y +increment, 10, 10);
+        // text(dayofWeek, x, y + increment);
+        x += colWidth;
+      }
     }
 
     
