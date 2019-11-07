@@ -1,5 +1,4 @@
 ## Process
+The sketches in the pdfs attached contain a summary of the data that I've researched, and will be using for my nuclear testing dataset. Day of the week data will be used and compared to time of day data for nuclear testing across 5 countries. I've created a google apps script using Moment.js to convert timezones according to UTC (Coordinated Universal Time)/GMT. 
 
-The sketches in the pdfs attached contain a summary of the data that I will be using for my nuclear testing dataset. I will be looking at the 20 largest yielding nuclear tests related to economic movements. Specifically I will track the week before, during, and after the bomb against the measurement of the S&P 500 historical daily changes in the stock market. 
-
-I will be using data from [Macrotrends](https://www.macrotrends.net/charts/stock-indexes) and the [Johnston's Archive](http://www.johnstonsarchive.net/nuclear/tests/USA-ntests0.html)  
+The data used will be based off of the nuclear testing dataset provided in class.  
