@@ -1,4 +1,11 @@
 ## Process
-The sketches in the pdfs attached contain a summary of the data that I've researched, and will be using for my nuclear testing dataset. Day of the week data will be used and compared to time of day data for nuclear testing across 5 countries. I've created a google apps script using Moment.js to convert timezones according to UTC (Coordinated Universal Time)/GMT. 
+There are a number of sketches created as pdfs attached to provide a summary of my process. 
 
-The data used will be based off of the nuclear testing dataset provided in class.  
+The final poster - Nuclear_project_LeeKuczewski_18x24.pdf - is best downloaded with adobe reader and zoomed in on for details.  
+
+## Summary:
+The results were based on [Johnston's Nuclear Data Archive](http://www.johnstonsarchive.net/nuclear/index.html) and Day of the week data was tranformed through a google apps script using [Moment.js](https://momentjs.com/timezone/). I compared 5 countries across day and time of data cross sections. Timezone information was converted through UTC (Coordinated Universal Time) to the location of testing. 
+
+Download the PDF and Zoom in to see the details of each country. 
+
+
