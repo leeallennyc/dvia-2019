@@ -21,12 +21,15 @@ function setup(){
   // let table4 = highestYieldbyYield;
   let table5 = highestYieldwithPercentageChange;
 
+
+
 // log 5 datasets to the console so we can poke around in it
   // print(table);
   // print(table2);
   // print(table3);
   // print(table4);
   print(table5);
+
 
 // let palette = Brewer.qualitative('Set1', table.columns);
 

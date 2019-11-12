@@ -1,4 +1,4 @@
-// Set up array for Days of the Week
+  // Set up array for Days of the Week
 let numofDays = 365;
 let weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
