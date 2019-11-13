@@ -1,4 +1,3 @@
 ## Process
 
-Listing of the contents of this folder and a prose description of your ideas for how to represent
-the earthquake data geospatially and diagrammatically.
+Diagrammatic sketches of quake-map data are included. A description of each approach is included in the PDF.  
