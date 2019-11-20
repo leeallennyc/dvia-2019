@@ -1,8 +1,9 @@
 // the data loaded from a USGS-provided CSV file
-var table;
+let table;
 
 // my leaflet.js map
-var mymap;
+let mymap;
+
 
 function preload() {
     // load the CSV data into our `table` variable and clip out the header row
@@ -11,22 +12,103 @@ function preload() {
 
 function setup() {
     // first, call our map initialization function (look in the html's style tag to set its dimensions)
-    setupMap()
+    setupMap();
 
     // call our function (defined below) that populates the maps with markers based on the table contents
     addCircles();
 
-    // generate a p5 diagram that complements the map, communicating the earthquake data non-spatially
-    createCanvas(800, 600)
-    background(222)
 
-    fill(0)
-    noStroke()
-    textSize(16)
-    text(`Plotting ${table.getRowCount()} seismic events`, 20, 40)
-    text(`Largest Magnitude: ${columnMax(table, "mag")}`, 20, 60)
-    text(`Greatest Depth: ${columnMax(table, "depth")}`, 20, 80)
-}
+    // generate a new Canvas instance
+
+
+    let canvasSketch1 = function(a) {
+        
+        a.x = a.windowWidth;
+        a.y = 500;
+        a.setup = function() {
+            a.createCanvas(a.x, a.y);
+            // a.position (0, 510);
+            a.background(0);
+        }
+        a.draw = function() {
+            a.fill(255, 0, 0, 50);
+            a.noStroke();
+            a.ellipse(a.x/2, a.y/2, 5, 5);
+
+        a.x = a.x + a.random(-10, 10);
+        a.y = a.y + a.random(-10, 10)
+
+        function windowResized() {
+            resizeCanvas(a.windowWidth, 510);
+        }
+      }
+    }
+
+    let canvasSketch2 = function(a) {
+        
+        a.x = a.windowWidth;
+        a.y = 500;
+        a.setup = function() {
+            a.createCanvas(a.x, a.y);
+            // a.position(0,1020);
+            a.background(60);
+        }
+        a.draw = function() {
+            a.fill(255, 0, 0, 50);
+            a.noStroke();
+            a.ellipse(a.x/2, a.y/2, 5, 5);
+
+        a.x = a.x + a.random(-10, 10);
+        a.y = a.y + a.random(-10, 10)
+
+        function windowResized() {
+            resizeCanvas(a.windowWidth, 510);
+        }
+      }
+    }
+
+    let canvasTemplate1 = new p5(canvasSketch1);
+    let canvasTemplate2 = new p5(canvasSketch2)
+
+
+
+
+
+    // generate a p5 diagram that complements the map, communicating the earthquake data non-spatially
+
+    // let canvasMiddle = createCanvas(windowWidth, 500);
+    // canvasMiddle.parent("canvasMiddle");
+    // canvasMiddle.position(0 ,510);
+    // background(0);
+
+    // function windowResized() {
+    //     resizeCanvas(windowWidth, 510);
+    // }
+
+    // fill(255);
+    // noStroke();
+    // textSize(16);
+    // text(`Plotting ${table.getRowCount()} seismic events`, 20, 40);
+    // text(`Largest Magnitude: ${columnMax(table, "mag")}`, 20, 60);
+    // text(`Greatest Depth: ${columnMax(table, "depth")}`, 20, 80);
+
+    // // generate another p5 diagram that complements the map, communicating the earthquake data non-spatially
+    // let canvasBottom = createCanvas(windowWidth, 500);
+    // canvasBottom.parent("canvasBottom");
+    // canvasBottom.position(0 ,1020);
+    // background(160);
+
+    // function windowResized() {
+    //     resizeCanvas(windowWidth, 510);
+    // }
+
+    // fill(255);
+    // noStroke();
+    // textSize(16);
+    // text(`Plotting ${table.getRowCount()} seismic events`, 20, 40);
+    // text(`Largest Magnitude: ${columnMax(table, "mag")}`, 20, 60);
+    // text(`Greatest Depth: ${columnMax(table, "depth")}`, 20, 80);
+
 
 function setupMap(){
     /*
@@ -37,45 +119,137 @@ function setupMap(){
     so for example L.map('mapid') or L.circle([lat, long])
     */
 
-    // create your own map
-    mymap = L.map('quake-map').setView([51.505, -0.09], 3);
+    // Declare and Set Map and Long/Lat View to Alaska/Pacific Ocean
+    mymap = L.map('Esri_WorldGrayCanvas').setView([55.160507, -150.369141], 2.5);
 
     // load a set of map tiles – choose from the different providers demoed here:
     // https://leaflet-extras.github.io/leaflet-providers/preview/
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox.streets',
-        accessToken: 'pk.eyJ1IjoiZHZpYTIwMTciLCJhIjoiY2o5NmsxNXIxMDU3eTMxbnN4bW03M3RsZyJ9.VN5cq0zpf-oep1n1OjRSEA'
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+        maxZoom: 16,
     }).addTo(mymap);
+
+
+
+//  Sample of implementing external GeoJSON file (sample-geojson.js) -- Set to Colorado
+	function onEachFeature(feature, layer) {
+		let popupContent = "<p>I started out as a GeoJSON " +
+				feature.geometry.type + ", but now I'm a Leaflet vector!</p>";
+
+		if (feature.properties && feature.properties.popupContent) {
+			popupContent += feature.properties.popupContent;
+		}
+
+		layer.bindPopup(popupContent);
+	}
+
+	L.geoJSON([bicycleRental, campus], {
+
+		style: function (feature) {
+			return feature.properties && feature.properties.style;
+		},
+
+		onEachFeature: onEachFeature,
+
+		pointToLayer: function (feature, latlng) {
+			return L.circleMarker(latlng, {
+				radius: 5,
+				fillColor: "#00ffff",
+				color: "#000",
+				weight: 1,
+				opacity: .5,
+				fillOpacity: 0.8
+			});
+		}
+	}).addTo(mymap);
+
+	L.geoJSON(freeBus, {
+
+		filter: function (feature, layer) {
+			if (feature.properties) {
+				// If the property "underConstruction" exists and is true, return false (don't render features under construction)
+				return feature.properties.underConstruction !== undefined ? !feature.properties.underConstruction : true;
+			}
+			return false;
+		},
+
+		onEachFeature: onEachFeature
+	}).addTo(mymap);
+
+	let coorsLayer = L.geoJSON(coorsField, {
+
+		pointToLayer: function (feature, latlng) {
+			return L.marker(latlng);
+		},
+
+		onEachFeature: onEachFeature
+    }).addTo(mymap);
+
+
+
+    //  Set up Volcanic Activity from GeoJSON data *file harvard-glb-volc-geojson.js
+    L.geoJSON(volcanicActivity, {
+
+		style: function (feature) {
+			return feature.properties && feature.properties.style;
+		},
+
+		onEachFeature: onEachFeature,
+
+		pointToLayer: function (feature, latlng) {
+			return L.circleMarker(latlng, {
+				radius: 4,
+				fillColor: "#5ac2e1",
+				color: "#5ac2e1",
+				weight: 1,
+				opacity: .5,
+				fillOpacity: 0.8
+			});
+		}
+	}).addTo(mymap);
+
+    
+    
+    // finding the coordinates on the map by clicking anywhere
+    let popup = L.popup();
+
+    function onMapClick(e) {
+        popup
+            .setLatLng(e.latlng)
+            .setContent("You clicked the map at " + e.latlng.toString())
+            .openOn(mymap);
+    }
+    mymap.on('click', onMapClick);
 }
+
+
 
 function addCircles(){
     // calculate minimum and maximum values for magnitude and depth
-    var magnitudeMin = 0.0;
-    var magnitudeMax = columnMax(table, "mag");
-    console.log('magnitude range:', [magnitudeMin, magnitudeMax])
+    let magnitudeMin = 0.0;
+    let magnitudeMax = columnMax(table, "mag");
+    console.log('magnitude range:', [magnitudeMin, magnitudeMax]);
 
-    var depthMin = 0.0;
-    var depthMax = columnMax(table, "depth");
-    console.log('depth range:', [depthMin, depthMax])
+    let depthMin = 0.0;
+    let depthMax = columnMax(table, "depth");
+    console.log('depth range:', [depthMin, depthMax]);
 
     // step through the rows of the table and add a dot for each event
-    for (var i=0; i<table.getRowCount(); i++){
-        var row = table.getRow(i)
+    for (let i=0; i<table.getRowCount(); i++){
+        let row = table.getRow(i);
 
         // skip over any rows where the magnitude data is missing
         if (row.get('mag')==''){
-            continue
+            continue;
         }
 
         // create a new dot
-        var circle = L.circle([row.getNum('latitude'), row.getNum('longitude')], {
-            color: 'red',      // the dot stroke color
+        let circle = L.circle([row.getNum('latitude'), row.getNum('longitude')], {
+            color: 'red',    // the dot stroke color
             fillColor: '#f03', // the dot fill color
-            fillOpacity: 0.25,  // use some transparency so we can see overlaps
-            radius: row.getNum('mag') * 40000
-        })
+            fillOpacity: 0.01,  // use some transparency so we can see overlaps
+            radius: row.getNum('mag') * 200
+        });
 
         // place the new dot on the map
         circle.addTo(mymap);
@@ -86,7 +260,7 @@ function addCircles(){
 function removeAllCircles(){
     mymap.eachLayer(function(layer){
         if (layer instanceof L.Circle){
-            mymap.removeLayer(layer)
+            mymap.removeLayer(layer);
         }
     })
 }
@@ -94,10 +268,10 @@ function removeAllCircles(){
 // get the maximum value within a column
 function columnMax(tableObject, columnName){
     // get the array of strings in the specified column
-    var colStrings = tableObject.getColumn(columnName);
+    let colStrings = tableObject.getColumn(columnName);
 
     // convert to a list of numbers by running each element through the `float` function
-    var colValues = _.map(colStrings, float);
+    let colValues = _.map(colStrings, float);
 
     // find the largest value in the column
     return _.max(colValues);
@@ -106,11 +280,12 @@ function columnMax(tableObject, columnName){
 // get the minimum value within a column
 function columnMin(tableObject, columnName){
     // get the array of strings in the specified column
-    var colStrings = tableObject.getColumn(columnName);
+    let colStrings = tableObject.getColumn(columnName);
 
     // convert to a list of numbers by running each element through the `float` function
-    var colValues = _.map(colStrings, float);
+    let colValues = _.map(colStrings, float);
 
     // find the largest value in the column
     return _.min(colValues);
+    }
 }
