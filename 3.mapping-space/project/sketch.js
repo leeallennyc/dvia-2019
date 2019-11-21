@@ -18,16 +18,13 @@ function setup() {
     addCircles();
 
 
-    // generate a new Canvas instance
-
-
+    // generate a new Canvas instance 
     let canvasSketch1 = function(a) {
         
         a.x = a.windowWidth;
         a.y = 500;
         a.setup = function() {
             a.createCanvas(a.x, a.y);
-            // a.position (0, 510);
             a.background(0);
         }
         a.draw = function() {
@@ -50,7 +47,6 @@ function setup() {
         a.y = 500;
         a.setup = function() {
             a.createCanvas(a.x, a.y);
-            // a.position(0,1020);
             a.background(60);
         }
         a.draw = function() {
@@ -68,29 +64,10 @@ function setup() {
     }
 
     let canvasTemplate1 = new p5(canvasSketch1);
-    let canvasTemplate2 = new p5(canvasSketch2)
+    let canvasTemplate2 = new p5(canvasSketch2);
 
 
 
-
-
-    // generate a p5 diagram that complements the map, communicating the earthquake data non-spatially
-
-    // let canvasMiddle = createCanvas(windowWidth, 500);
-    // canvasMiddle.parent("canvasMiddle");
-    // canvasMiddle.position(0 ,510);
-    // background(0);
-
-    // function windowResized() {
-    //     resizeCanvas(windowWidth, 510);
-    // }
-
-    // fill(255);
-    // noStroke();
-    // textSize(16);
-    // text(`Plotting ${table.getRowCount()} seismic events`, 20, 40);
-    // text(`Largest Magnitude: ${columnMax(table, "mag")}`, 20, 60);
-    // text(`Greatest Depth: ${columnMax(table, "depth")}`, 20, 80);
 
     // // generate another p5 diagram that complements the map, communicating the earthquake data non-spatially
     // let canvasBottom = createCanvas(windowWidth, 500);
@@ -102,12 +79,12 @@ function setup() {
     //     resizeCanvas(windowWidth, 510);
     // }
 
-    // fill(255);
-    // noStroke();
-    // textSize(16);
-    // text(`Plotting ${table.getRowCount()} seismic events`, 20, 40);
-    // text(`Largest Magnitude: ${columnMax(table, "mag")}`, 20, 60);
-    // text(`Greatest Depth: ${columnMax(table, "depth")}`, 20, 80);
+    fill(0);
+    noStroke();
+    textSize(6);
+    text(`Plotting ${table.getRowCount()} seismic events`, 20, 40);
+    text(`Largest Magnitude: ${columnMax(table, "mag")}`, 20, 60);
+    text(`Greatest Depth: ${columnMax(table, "depth")}`, 20, 80);
 
 
 function setupMap(){
