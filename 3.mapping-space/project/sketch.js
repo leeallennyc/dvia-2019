@@ -163,6 +163,18 @@ function setupMap(){
     }).addTo(mymap);
 
 
+    // let plateStyle = {
+    //     "color": "#ff7800",
+    //     "weight": 5,
+    //     "opacity": 0.65
+    // };
+
+    // L.geoJSON(plates, {
+    //     style: plateStyle
+    // }).addTo(map);
+
+
+
 
     //  Set up Volcanic Activity from GeoJSON data *file harvard-glb-volc-geojson.js
     L.geoJSON(volcanicActivity, {
