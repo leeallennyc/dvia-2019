@@ -8,7 +8,10 @@ let mymap;
 function preload() {
     // load the CSV data into our `table` variable and clip out the header row
     table = loadTable("../data/all_month.csv", "csv", "header");
+    geoJSONPlateBoundaries = loadJSON("PB2002_boundaries.json");
+    console.log(geoJSONPlateBoundaries);
 }
+
 
 function setup() {
     // first, call our map initialization function (look in the html's style tag to set its dimensions)
@@ -16,9 +19,11 @@ function setup() {
 
     // call our function (defined below) that populates the maps with markers based on the table contents
     addCircles();
+    addPlateBoundaries();
 
 
-    // generate a new Canvas instance 
+
+    // generate a Canvas instance 
     let canvasSketch1 = function(a) {
         
         a.x = a.windowWidth;
@@ -36,11 +41,13 @@ function setup() {
         a.y = a.y + a.random(-10, 10)
 
         function windowResized() {
-            resizeCanvas(a.windowWidth, 510);
+            resizeCanvas(a.windowWidth, 600);
         }
       }
     }
 
+
+    // generate a another Canvas instance
     let canvasSketch2 = function(a) {
         
         a.x = a.windowWidth;
@@ -58,15 +65,22 @@ function setup() {
         a.y = a.y + a.random(-10, 10)
 
         function windowResized() {
-            resizeCanvas(a.windowWidth, 510);
+            resizeCanvas(a.windowWidth, 600);
         }
       }
     }
 
+    // Placed both canvas instances in variables and call constructor
     let canvasTemplate1 = new p5(canvasSketch1);
     let canvasTemplate2 = new p5(canvasSketch2);
 
-
+    // Place text from map in banner below map
+    fill(0);
+    noStroke();
+    textSize(6);
+    text(`Plotting ${table.getRowCount()} seismic events`, 20, 40);
+    text(`Largest Magnitude: ${columnMax(table, "mag")}`, 20, 60);
+    text(`Greatest Depth: ${columnMax(table, "depth")}`, 20, 80);
 
 
     // // generate another p5 diagram that complements the map, communicating the earthquake data non-spatially
@@ -79,12 +93,6 @@ function setup() {
     //     resizeCanvas(windowWidth, 510);
     // }
 
-    fill(0);
-    noStroke();
-    textSize(6);
-    text(`Plotting ${table.getRowCount()} seismic events`, 20, 40);
-    text(`Largest Magnitude: ${columnMax(table, "mag")}`, 20, 60);
-    text(`Greatest Depth: ${columnMax(table, "depth")}`, 20, 80);
 
 
 function setupMap(){
@@ -97,7 +105,7 @@ function setupMap(){
     */
 
     // Declare and Set Map and Long/Lat View to Alaska/Pacific Ocean
-    mymap = L.map('Esri_WorldGrayCanvas').setView([55.160507, -150.369141], 2.5);
+    mymap = L.map('Esri_WorldGrayCanvas').setView([55.160507, -150.369141], 2.75);
 
     // load a set of map tiles – choose from the different providers demoed here:
     // https://leaflet-extras.github.io/leaflet-providers/preview/
@@ -107,8 +115,7 @@ function setupMap(){
     }).addTo(mymap);
 
 
-
-//  Sample of implementing external GeoJSON file (sample-geojson.js) -- Set to Colorado
+    // Sample of implementing external GeoJSON file (sample-geojson.js) -- Set to Colorado
 	function onEachFeature(feature, layer) {
 		let popupContent = "<p>I started out as a GeoJSON " +
 				feature.geometry.type + ", but now I'm a Leaflet vector!</p>";
@@ -116,10 +123,10 @@ function setupMap(){
 		if (feature.properties && feature.properties.popupContent) {
 			popupContent += feature.properties.popupContent;
 		}
-
-		layer.bindPopup(popupContent);
-	}
-
+        layer.bindPopup(popupContent);
+    };
+    
+    // Sample of creating Points on the map related to bicycleRental and campus data (sample-geojson.js)
 	L.geoJSON([bicycleRental, campus], {
 
 		style: function (feature) {
@@ -132,14 +139,16 @@ function setupMap(){
 			return L.circleMarker(latlng, {
 				radius: 5,
 				fillColor: "#00ffff",
-				color: "#000",
-				weight: 1,
-				opacity: .5,
-				fillOpacity: 0.8
+				color: "#00ffff",
+				weight: 0.1,
+				opacity: 0.5,
+				fillOpacity: 0.5,
 			});
 		}
-	}).addTo(mymap);
+    }).addTo(mymap);
 
+    
+    // Sample of creating Points on the map related to freeBus data (sample-geojson.js)
 	L.geoJSON(freeBus, {
 
 		filter: function (feature, layer) {
@@ -149,31 +158,16 @@ function setupMap(){
 			}
 			return false;
 		},
-
 		onEachFeature: onEachFeature
 	}).addTo(mymap);
 
+    // Sample of creating Points on the map related to coorsField data (sample-geojson.js)
 	let coorsLayer = L.geoJSON(coorsField, {
-
 		pointToLayer: function (feature, latlng) {
 			return L.marker(latlng);
 		},
-
 		onEachFeature: onEachFeature
     }).addTo(mymap);
-
-
-    // let plateStyle = {
-    //     "color": "#ff7800",
-    //     "weight": 5,
-    //     "opacity": 0.65
-    // };
-
-    // L.geoJSON(plates, {
-    //     style: plateStyle
-    // }).addTo(map);
-
-
 
 
     //  Set up Volcanic Activity from GeoJSON data *file harvard-glb-volc-geojson.js
@@ -187,21 +181,20 @@ function setupMap(){
 
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, {
-				radius: 4,
-				fillColor: "#5ac2e1",
-				color: "#5ac2e1",
-				weight: 1,
-				opacity: .5,
-				fillOpacity: 0.8
+                radius: 2,
+                stroke: false,
+				fillColor: "#0DEC1D94",
+				color: "#0DEC1D94",
+				weight: 0.2,
+				opacity: 0.9,
+				fillOpacity: 0.2
 			});
 		}
 	}).addTo(mymap);
 
     
-    
-    // finding the coordinates on the map by clicking anywhere
+    // sample to find the coordinates on the map by clicking anywhere
     let popup = L.popup();
-
     function onMapClick(e) {
         popup
             .setLatLng(e.latlng)
@@ -209,9 +202,23 @@ function setupMap(){
             .openOn(mymap);
     }
     mymap.on('click', onMapClick);
-}
+};
 
 
+    // Here we add the Boundary Layers JSON data
+    function addPlateBoundaries() {
+    let boundaryStyle = {
+        "color": "#FDFBAC",
+        "weight": 0.5,
+        "stroke": true,
+        "opacity": 0.6
+    };
+
+    L.geoJSON(geoJSONPlateBoundaries, {
+        style: boundaryStyle
+    })
+    .addTo(mymap);
+};
 
 function addCircles(){
     // calculate minimum and maximum values for magnitude and depth
@@ -234,10 +241,11 @@ function addCircles(){
 
         // create a new dot
         let circle = L.circle([row.getNum('latitude'), row.getNum('longitude')], {
-            color: 'red',    // the dot stroke color
+            color: 'red',
+            stroke: false,    // the dot stroke color
             fillColor: '#f03', // the dot fill color
-            fillOpacity: 0.01,  // use some transparency so we can see overlaps
-            radius: row.getNum('mag') * 200
+            fillOpacity: 0.5,  // use some transparency so we can see overlaps
+            radius: row.getNum('mag') * 400
         });
 
         // place the new dot on the map
