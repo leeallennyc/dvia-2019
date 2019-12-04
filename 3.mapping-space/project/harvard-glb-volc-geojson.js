@@ -6,7 +6,7 @@ The data was adapted from Simkin and Siebert, 1994 "Volcanoes of the World: an I
 Source :https://earthworks.stanford.edu/catalog/harvard-glb-volc 
 */
 
-let volcanicActivity = {
+var volcanicActivity = {
     "type": "FeatureCollection",
     "totalFeatures": 1509,
     "features": [{
