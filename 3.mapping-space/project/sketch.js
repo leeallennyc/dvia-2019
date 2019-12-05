@@ -107,6 +107,7 @@ function setup() {
     var volcScale = chroma.scale('YlGnBu').mode('lch').domain([0, 10]);
   
     // convert the raw geoJSON feed we loaded from the USGS into a plain array of objects
+    var quakesWeekly =  unpackJSON(geoJSONDataWeek);
     var quakes = unpackJSON(geoJSONDataMonthAll);
     quakes = sortQuakes(quakes, '-mag') // '-mag' means sort from largest to smallest and 'mag'--smallest to largest
     
