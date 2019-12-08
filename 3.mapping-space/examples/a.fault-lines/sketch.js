@@ -62,7 +62,7 @@ function setup() {
 
         // draw a marker at the location of the quake itself
         L.circleMarker([lat, lng], {
-            weight:2,
+            weight:4,
             color:'red',
             fillColor:'white',
             fillOpacity:1,
