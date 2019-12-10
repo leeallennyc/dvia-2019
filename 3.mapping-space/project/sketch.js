@@ -38,7 +38,7 @@ function setup() {
     title.parent('title');
 
     // Setup canvas1 and connect to "canvas1" div
-    let canvas1 = createCanvas(displayWidth, 2000);
+    let canvas1 = createCanvas(displayWidth, 1000);
     canvas1.parent('container1');
    
     // first, call our map initialization function (look in the html's style tag to set its dimensions)
@@ -151,7 +151,7 @@ function setupMap(){
         // zoomSnap: 0,
     }).addTo(globe);
 
-    // // Create Zoom/Storytelling on different location near the ring of fire. * Needs work
+    // // Create Zoom/Storytelling on different locations near the ring of fire. * Need to break the loop at the end of the cycle * Needs work
     // var ringOfFlying = [
     //     // California Zooming
     //     { latlng: [35.77929, -117.696247], zoom: 10 },
@@ -176,7 +176,7 @@ function setupMap(){
        
     //    setInterval(function() {
        
-    //      // flyTo the n-th flight destination...
+    //      // flyTo the n-th flight destination
     //      globe.flyTo(ringOfFlying[flightNumber].latlng, ringOfFlying[flightNumber].zoom );
        
     //      // The next iteration flys to the next flight destination
@@ -287,13 +287,13 @@ function setupMap(){
 
     // use lodash to count up the number of earthquakes per faultline and store them in an object whose
     // attributes are fault names and values are integers with the total counts
-    var faultCounts = _.countBy(table.rows, function(row){
-        // Tectonic.findFault() takes a [lat,lng] coordinate and returns an object with fields for
-        // 'latitude', 'longitude', 'distance', and 'name' describing which fault (and where along it)
-        // the quake is closest to. The distance value is in kilometers and latitude/longitude are the 
-        // the closest point to the quake on the fault.
-        return Tectonic.findFault(row.getNum('latitude'), row.getNum('longitude')).name
-      })
+    // var faultCounts = _.countBy(table.rows, function(row){
+    //     // Tectonic.findFault() takes a [lat,lng] coordinate and returns an object with fields for
+    //     // 'latitude', 'longitude', 'distance', and 'name' describing which fault (and where along it)
+    //     // the quake is closest to. The distance value is in kilometers and latitude/longitude are the 
+    //     // the closest point to the quake on the fault.
+    //     return Tectonic.findFault(row.getNum('latitude'), row.getNum('longitude')).name
+    // })
   
     // the variable Tectonic.plates is an array of geoJson 'feature' objects. 
     // Add each to the map as a yellow dashed line
@@ -309,8 +309,8 @@ function setupMap(){
         "dashArray": 5,
         "dashOffset": 5,
         "opacity": 0.8
-        }).bindTooltip(`${name} fault: ${faultCounts[name]} quakes`).addTo(globe);
-        //   .bindTooltip(`${name} fault: ${faultCounts[name]} quakes`) <-- add before .addTo above
+        }).addTo(globe); // <-- add .bindTooltip(`${name} fault: ${faultCounts[name]} quakes`)  before .addTo () 
+
     }
   
       // step through the earthquakes csv and add a small dot for each one
@@ -410,88 +410,6 @@ function mirroredFeatures(features){
     }))
 }
 
-// function addCircles(){
-
-
-//     // calculate minimum and maximum values for magnitude and depth
-//     let magnitudeMin = 0.0;
-//     let magnitudeMax = columnMax(table, "mag");
-//     console.log('magnitude range:', [magnitudeMin, magnitudeMax]);
-
-//     let depthMin = 0.0;
-//     let depthMax = columnMax(table, "depth");
-//     console.log('depth range:', [depthMin, depthMax]);
-
-//     // step through the rows of the table and add a dot for each event
-//     for (var i=0; i<table.getRowCount(); i++){
-        
-//         let row = table.getRow(i);
-//         let place = table.getColumn('place');
-//         let mag = table.getColumn('mag');
-//         let depth = table.getColumn('depth');
-
-//         // skip over any rows where the magnitude data is missing
-//         if (row.get('mag')==''){
-//             continue;
-//         }
-//         let lat = row.getNum('latitude') 
-//         let lon = row.getNum('longitude')
-
-
-//         // printLatAndLon(lat, lon);
-
-//         // console.log(table.getColumn();
-//         let getColorQuakes = function(d) {
-//             return d > 8.0  ? '#800026' :
-//                 d > 7.5  ? '#bd0026' :
-//                 d > 6.0  ? '#e31a1c' :
-//                 d > 4.5  ? '#fc4e2a' :
-//                 d > 3.0  ? '#fd8d3c' :
-//                 d > 1.5  ? '#feb24c' :
-//                 d > 0.0  ? '#fed976' :
-//                            '#fed976' ;
-//         };
-
-
-//         let circle = L.circle([lat, lon], {
-//             stroke: false,    // the dot stroke color
-//             fillOpacity: 0.8,  // use some transparency so we can see overlaps
-//             radius: row.getNum('mag') * 2000,
-//             color: getColorQuakes(row.getNum('mag')) // the dot fill color
-
-//         });
-//         let circleShiftRight = L.circle([lat, lon + 360], {
-//             stroke: false,    // the dot stroke color
-//             fillOpacity: 0.8,  // use some transparency so we can see overlaps
-//             radius: row.getNum('mag') * 2000,
-//             color: getColorQuakes(row.getNum('mag')) // the dot fill color
-//         });
-
-//         let circleShiftLeft = L.circle([lat, lon - 360], {
-//             stroke: false,    // the dot stroke color
-//             fillOpacity: 0.8,  // use some transparency so we can see overlaps
-//             radius: row.getNum('mag') * 2000,
-//             color: getColorQuakes(row.getNum('mag')) // the dot fill color
-//         });
-
-//         // place the new dot on the map
-
-//         // L.geoJson(geoJSONDataMonthAll, {style: style}).addTo(globe);
-//         circle.addTo(globe);
-//         circleShiftRight.addTo(globe);
-//         circleShiftLeft.addTo(globe);
-//     }
-// };
-
-// // removes any circles that have been added to the map
-// function removeAllCircles(){
-//     globe.eachLayer(function(layer){
-//         if (layer instanceof L.Circle){
-//             globe.removeLayer(layer);
-//         }
-//     });
-// }
-
 // get the maximum value within a column
 function columnMax(tableObject, columnName){
     // get the array of strings in the specified column
@@ -515,7 +433,25 @@ function columnMin(tableObject, columnName){
     // find the largest value in the column
     return _.min(colValues);
 }
+
+
+
 //#######Snippets to use below for experiments_____________________________________________________
+
+
+
+
+// Async callback function for loading JSON
+// loadJSON("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",gotData);
+
+// function gotData(data){
+   
+//     for (var i = 0; i < data.features; i++) {
+//         fill(255, 0, 0);
+//         ellipse(random(width), random(height), 16, 16);
+//     }
+//     console.log(data.features[i]);
+// }
 
 
 // Sort Table Function using Lodash
@@ -534,20 +470,6 @@ function columnMin(tableObject, columnName){
   
 //     return _.extend(table, {rows})
 //   }
-
-
-
-// Async callback function for loading JSON
-// loadJSON("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",gotData);
-
-// function gotData(data){
-   
-//     for (var i = 0; i < data.features; i++) {
-//         fill(255, 0, 0);
-//         ellipse(random(width), random(height), 16, 16);
-//     }
-//     console.log(data.features[i]);
-// }
 
 
 // Custom Control
@@ -577,14 +499,11 @@ function columnMin(tableObject, columnName){
 //     info.update();
 
 
-
 // textSize(12);
 // fill(255);
 // text(`Plotting ${table.getRowCount()} seismic events`, 20, 40);
 // text(`Largest Magnitude: ${columnMax(table, "mag")}`, 20, 60);
 // text(`Greatest Depth: ${columnMax(table, "depth")}`, 20, 80);
-
-
 
 // function volcDataPoints() {
 //     strokeWeight(2);
@@ -623,8 +542,6 @@ function columnMin(tableObject, columnName){
 // var myLayer = L.geoJSON().addTo(map);
 // myLayer.addData(geojsonFeature);
 
-
-// feature.geometry.coordinates[0] = feature.geometry.coordinates[0] + 180
 
 // Sample of creating Points on the map related to bicycleRental and campus data (sample-geojson.js)
 // L.geoJSON([bicycleRental, campus], {
@@ -668,42 +585,6 @@ function columnMin(tableObject, columnName){
 // 	},
 // 	onEachFeature: onEachFeature
 // }).addTo(globe);
-
-
-// Extend plateboundaries beyond anti-meridian sample....code WIP
-
-//  for(let i = 0; i < geoJSONPlateBoundaries.features.length; i++) {
-//     let feature = geoJSONPlateBoundaries.features[i]
-//     let coordArr = feature.geometry.coordinates
-//     for (let z = 0; z < coordArr.length; z++) {
-//         let currCoords = coordArr[z]
-//         console.log(currCoords)
-//         let lon = currCoords[1]
-//         if (lon < 0) {
-//             console.log('hello it is less than')
-//             currCoords[1] = currCoords[1] + 360
-//         }
-//     }
-// }
-
-
-// // Plate Boundary JSON data 
-// function addPlateBoundaries() {
-//     let boundaryStyle = {
-//         "weight": 0.75,
-//         "color": "#FDFBAC",
-//         "dashArray": 5,
-//         "dashOffset": 5,
-//         "opacity": 0.8
-// }
-
-// // Plate Boundaries are added to Map -- shown by yellow dashed lined
-// L.geoJSON(geoJSONPlateBoundaries, {
-//     style: boundaryStyle
-// })
-// .addTo(globe);
-// };
-
 
 
   // sample to find the coordinates on the map by clicking anywhere

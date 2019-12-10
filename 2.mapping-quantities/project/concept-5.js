@@ -2,7 +2,8 @@
 
 // Preload the CSV file from the Data Folder
 function preload(){
-    allCountriesCleaned = loadTable('data/Allcountries_cleaned.csv', 'csv', 'header');
+    // allCountriesCleaned = loadTable('data/Allcountries_cleaned.csv', 'csv', 'header');
+    allCountriesCleanedISO = loadTable('data/All_Countries_Cleaned_ISO.csv', 'csv', 'header');
     }
 
     // let loopBeat;
@@ -14,8 +15,10 @@ function preload(){
 // Setup Canvas and Background
 function setup(){
     let start = moment().valueOf();
-    createCanvas(30000, 4000);
-    background(255);
+    let cnv = createCanvas(27000, 1300);
+    cnv.position(200, 200);
+
+    background(0);
 
     // bassSynth = new Tone.MembraneSynth().toMaster();
     // loopBeat = new Tone.Loop(song, '4n');
@@ -58,21 +61,35 @@ function setup(){
 
 
     // Setting dataTable1 to All Countries Cleaned csv.   
-    let dataTable1  = allCountriesCleaned;
+    // let dataTable1  = allCountriesCleaned;
+    let dataTable2 = allCountriesCleanedISO;
+
+    let daysOfWeek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
 
     // Starting point for x and y Axis
     let x = 200;
     let y = 0;
 
+    // Title 
+    let title = "Nulcear Fingerprints";
+    textAlign(CENTER);
+    textSize(40);
+    fill(255);
+    text(title, 385, 130);
+    
     // Set Increment/Rowheight/Rectangle X and Y size
-    let increment = 40;
-    let rowHeight = 40;
-    let colWidth = 40;
-    let rectDimX = 1;
+    let increment = 20;
+    let rowHeight = 15;
+    let colWidth = 2;
+    let labelsColWidth = 100;
+    let labelsRowHeight = 100;
+    let rectDimX = 2;
     let rectDimY = 15;
     let latestIndex = 0;
+    let countryGap = 40;
     let count = 0;
 
+    let countries = ["USA", "RUSSIA", "UNITED KINGDOM", "FRANCE", "CHINA"];
     
     // Set years as Array
     let years = ["1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956",
@@ -81,8 +98,10 @@ function setup(){
     "1989", "1990", "1991", "1992","1993", "1994", "1995", "1996", "1997","1998", "1999", "2000", "2001", "2002", "2003", "2004",  
     "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017"];
 
+    let decades = ["1945", "1955", "1965", "1975", "1985", "1995", "2005", "2015"];
+
     // Starting Date
-    let date = moment('01/1/1945', 'MM/DD/YYYY');
+    let date = moment('1945-01-01', 'YYYY-MM-DD');
     
     // Create outer For loop to go through every day from 1945-2017
     for (let t = 0; t < (years.length) * 365; t++) {
@@ -90,9 +109,10 @@ function setup(){
         if (t === 0) {
             date = date;
         } else {
-            date = moment(date.add(1, 'days').format('MM/DD/YYYY')); // <--- Setting Date variable to Increment by one day
+            date = moment(date.add(1, 'days').format('YYYY-MM-DD')); // <--- Setting Date variable to Increment by one day
         }
 
+        moment('1995-12-25', 'YYYY-MM-DD');
         console.log('Date is: ', date);
 
         // Setting Country/Day variables to False
@@ -136,11 +156,13 @@ function setup(){
         let chinaSaturday = false;
         let chinaSunday = false;
 
+        
+
         // Looping through each day in getting Country, Day of Week, and Date data
-        for (let rowIndex = latestIndex; rowIndex < dataTable1.getRowCount(); rowIndex++) {
-            let country = dataTable1.getString(rowIndex, 0);
-            let dayOfWeek = dataTable1.getString(rowIndex, 2);
-            let rowDate = moment(dataTable1.getString(rowIndex, 6), 'MM/DD/YYYY');
+        for (let rowIndex = latestIndex; rowIndex < dataTable2.getRowCount(); rowIndex++) {
+            let country = dataTable2.getString(rowIndex, 0);
+            let dayOfWeek = dataTable2.getString(rowIndex, 2);
+            let rowDate = moment(dataTable2.getString(rowIndex, 10), 'YYYY-MM-DD');
             let rowAfterCurrent = !rowDate.isSameOrBefore(date);
 
             if (rowAfterCurrent) {
@@ -268,345 +290,408 @@ function setup(){
             }
         }        
 
+        // for (let y = 0; y <= countries.length * daysOfWeek.length; y++){
+        //     yOffset = 20(y);
+        // }
+        // console.log(yOffset);
             // Draw all USA Data
+
         if (usaMonday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('blue');
             fill('blue');
-            rect(x, 0 + increment, rectDimX, rectDimY);
+            rect(x, 200 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 0 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x, 200 + increment, rectDimX, rectDimY);
         }
         if (usaTuesday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('blue');
             fill('blue');
-            rect(x, 40 + increment, rectDimX, rectDimY);
+            rect(x, 220 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 40 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x, 220 + increment, rectDimX, rectDimY);
         }
         if (usaWednesday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('blue');
             fill('blue');
-            rect(x, 80 + increment, rectDimX, rectDimY);
+            rect(x, 240+ increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 80 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x, 240 + increment, rectDimX, rectDimY);
         }
         if (usaThursday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('blue');
             fill('blue');
-            rect(x, 120 + increment, rectDimX, rectDimY);
+            rect(x, 260 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 120 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x, 260 + increment, rectDimX, rectDimY);
         }
         if (usaFriday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('blue');
             fill('blue');
-            rect(x, 160 + increment, rectDimX, rectDimY);
+            rect(x, 280+ increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 160 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x, 280 + increment, rectDimX, rectDimY);
         }
         if (usaSaturday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('blue');
             fill('blue');
-            rect(x, 200 + increment, rectDimX, rectDimY);
+            rect(x, 300 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 200 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x, 300 + increment, rectDimX, rectDimY);
         }
         if (usaSunday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('blue');
             fill('blue');
-            rect(x, 240 + increment, rectDimX, rectDimY);
+            rect(x, 320 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 240 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x, 320 + increment, rectDimX, rectDimY);
         }
 
         // Draw all USSR Data
         if (ussrMonday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('red');
             fill('red'); 
-            rect(x, 340 + increment, rectDimX, rectDimY);
+            rect(x, 360 + increment + countryGap, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 340 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x, 360 + increment + countryGap, rectDimX, rectDimY);
         }
         if (ussrTuesday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('red');
             fill('red');
             rect(x, 380 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
+            fill(60);
             rect(x, 380 + increment, rectDimX, rectDimY);
         }
         if (ussrWednesday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('red');
             fill('red');
-            rect(x, 420 + increment, rectDimX, rectDimY);
+            rect(x, 400 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 420 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x, 400 + increment, rectDimX, rectDimY);
         }
         if (ussrThursday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('red');
             fill('red');
-            rect(x, 460 + increment, rectDimX, rectDimY);
+            rect(x, 420 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 460 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x, 420 + increment, rectDimX, rectDimY);
         }
         if (ussrFriday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('red');
             fill('red');
-            rect(x, 500 + increment, rectDimX, rectDimY);
+            rect(x, 440 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 500 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x, 440 + increment, rectDimX, rectDimY);
         }
         if (ussrSaturday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('red');
             fill('red');
-            rect(x, 540 + increment, rectDimX, rectDimY);
+            rect(x, 460 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 540 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x, 460 + increment, rectDimX, rectDimY);
         }      
         if (ussrSunday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('red');
             fill('red');
-            rect(x, 580 + increment, rectDimX, rectDimY);
+            rect(x, 480 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 580 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x, 480 + increment, rectDimX, rectDimY);
         }
 
         // Draw all UK Data
         if (ukMonday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('green');
             fill('green');
-            rect(x, 680 + increment, rectDimX, rectDimY);
+            rect(x, 520 + increment + countryGap, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 680 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x, 520 + increment + countryGap, rectDimX, rectDimY);
         }
         if (ukTuesday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('green');
             fill('green');
-            rect(x, 720 + increment, rectDimX, rectDimY);
+            rect(x, 540 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 720 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x, 540 + increment, rectDimX, rectDimY);
         }
         if (ukWednesday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('green');
             fill('green');
-            rect(x, 760 + increment, rectDimX, rectDimY);
+            rect(x,  560 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 760 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  560 + increment, rectDimX, rectDimY);
         }
         if (ukThursday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('green');
             fill('green');
-            rect(x, 800 + increment, rectDimX, rectDimY);
+            rect(x, 580 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 800 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x, 580 + increment, rectDimX, rectDimY);
         }
         if (ukFriday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('green');
             fill('green');
-            rect(x, 840 + increment, rectDimX, rectDimY);
+            rect(x, 600 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 840 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  600 + increment, rectDimX, rectDimY);
         }
         if (ukSaturday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('green');
             fill('green');
-            rect(x, 880 + increment, rectDimX, rectDimY);
+            rect(x,  620 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 880 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  620 + increment, rectDimX, rectDimY);
         }
         if (ukSunday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('green');
             fill('green');
-            rect(x, 920 + increment, rectDimX, rectDimY);
+            rect(x,  640 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 920 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  640 + increment, rectDimX, rectDimY);
         }            
 
         // Draw all FRANCE Data
         if (franceMonday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('orange');
             fill('orange');
-            rect(x, 1020 + increment, rectDimX, rectDimY);
+            rect(x,  680 + increment + countryGap, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 1020 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  680 + increment + countryGap, rectDimX, rectDimY);
         }
         if (franceTuesday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('orange');
             fill('orange');
-            rect(x, 1060 + increment, rectDimX, rectDimY);
+            rect(x,  700 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 1060 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  700 + increment, rectDimX, rectDimY);
         }
         if (franceWednesday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('orange');
             fill('orange');
-            rect(x, 1100 + increment, rectDimX, rectDimY);
+            rect(x,  720 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 1100 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  720 + increment, rectDimX, rectDimY);
         }
         if (franceThursday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('orange');
             fill('orange');
-            rect(x, 1140 + increment, rectDimX, rectDimY);
+            rect(x,  740 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 1140 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  740 + increment, rectDimX, rectDimY);
         }
         if (franceFriday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('orange');
             fill('orange');
-            rect(x, 1180 + increment, rectDimX, rectDimY);
+            rect(x,  760 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 1180 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  760 + increment, rectDimX, rectDimY);
         }
         if (franceSaturday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('orange');
             fill('orange');
-            rect(x, 1220 + increment, rectDimX, rectDimY);
+            rect(x, 780 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 1220 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  780 + increment, rectDimX, rectDimY);
         }
         if (franceSunday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('orange');
             fill('orange');
-            rect(x, 1260 + increment, rectDimX, rectDimY);
+            rect(x,  800 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 1260 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  800 + increment, rectDimX, rectDimY);
         }    
 
 
         // Draw all CHINA Data
         if (chinaMonday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('purple');
             fill('purple');
-            rect(x, 1360 + increment, rectDimX, rectDimY);
+            rect(x,  840 + increment + countryGap, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 1360 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  840 + increment + countryGap, rectDimX, rectDimY);
         }
         if (chinaTuesday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('purple');
             fill('purple');
-            rect(x, 1400 + increment, rectDimX, rectDimY);
+            rect(x,  860 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 1400 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  860 + increment, rectDimX, rectDimY);
         }
         if (chinaWednesday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('purple');
             fill('purple');
-            rect(x, 1440 + increment, rectDimX, rectDimY);
+            rect(x,  880 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 1440 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  880 + increment, rectDimX, rectDimY);
         }
         if (chinaThursday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('purple');
             fill('purple');
-            rect(x, 1480 + increment, rectDimX, rectDimY);
+            rect(x,  900 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 1480 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  900 + increment, rectDimX, rectDimY);
         }
         if (chinaFriday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('purple');
             fill('purple');
-            rect(x, 1520 + increment, rectDimX, rectDimY);
+            rect(x,  920 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 1520 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  920 + increment, rectDimX, rectDimY);
         }
         if (chinaSaturday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('purple');
             fill('purple');
-            rect(x, 1560 + increment, rectDimX, rectDimY);
+            rect(x,  940 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 1560 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  940 + increment, rectDimX, rectDimY);
         }
         if (franceSunday) {
-            noStroke();
+            strokeWeight(1);
+            stroke('purple');
             fill('purple');
-            rect(x, 1600 + increment, rectDimX, rectDimY);
+            rect(x,  960 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(250);
-            rect(x, 1600 + increment, rectDimX, rectDimY);
+            fill(60);
+            rect(x,  960 + increment, rectDimX, rectDimY);
         }  
 
         // Creating a break every ten years    
         if (t === 0 || t % 3650 == 0) {
-            noStroke();
-            fill(255,0,0);
-            rect(x, 1800 - rowHeight, 1, 30);
+            
+                fill(255,0,0);
+                rect(x, 1050 - rowHeight, 2, 45);
+            
         } else if (t % 365 == 0) {
-            noStroke();
+            
             fill(255,0,0);
-            rect(x, 1800 - rowHeight, 1, 10);
+            rect(x, 1050 - rowHeight, 2, 25);
         }
         // move over by 1 to the right and start loop over
         x += 1;
+    };
+
+    // Print out Decade Names
+    for  (var j = 0; j < decades.length; j++) {
+        textSize(16);
+        textAlign(CENTER);
+        fill(255);
+        text(decades[j], (j*3650) + 200, 1100);
     }
+
+    // Label countries
+    for (var i = 0; i < countries.length+1; i++) {
+        textSize(16);
+        textAlign(RIGHT);
+        fill(255);
+        text(countries[i], 170, 275 + i*165);
+    }
+
+    // Line across Decades
+    fill(255,0,0);
+    stroke(255,0,0);
+    line(200, 1035, 26850, 1035);
+
     // End of loop and duration
     let end = moment().valueOf();
     let duration = end - start;
@@ -615,6 +700,19 @@ function setup(){
     // function song(time) {
     //     // bassSynth.triggerAttackRelease('c3', '8n', time);
     //     console.log(time);
+    
 }
 
 
+
+// Make 2DArray function
+
+// function setup() {
+//     createCanva(300, 300);
+//     colors = make2Darray(cols, rows);
+//     for(var i = 0; i < cols; i++){
+//         for(var j = 0; j < rows; j++){
+//             color[i][j] = random(255);
+//         }
+//     }
+// }
