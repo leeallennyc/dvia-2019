@@ -133,6 +133,7 @@ function setup() {
       y += rowHeight;
     } 
 
+    // Draw out the numOfQuakes range from numOfQuakes array
     x = 200;
     y = 760;
     textStyle(BOLD);
@@ -144,25 +145,26 @@ function setup() {
     }
 
 
-     //  Draw time ticks to fit to the 5 year span
+     //  Draw ticks to fit number of quakes
      x = 200;
      y = 775;
        for (let t = 0; t < numOfQuakes.length; t++){
            fill(255,0,0);
-           stroke(255);
+           stroke(255,0,0);
            rect(x, y - rowHeight, 2,10);
            x += colWidth;
        }
    
-   //  Draw time yearly ticks to fit to with the 5 year span
-   x = 201;
-   y = 780;
-     for (let m = 0; m < years.length-2; m++){
-         fill(255,0,0);
-         stroke(255);
-         ellipse(x, y - rowHeight, 2,2);
-         x += colWidth/5; 
-     }
+//    //  Draw  ticks to fit the 5 year span
+//    x = 201;
+//    y = 780;
+//      for (let m = 0; m < years.length-2; m++){
+//          fill(255,0,0);
+//          stroke(255);
+//          ellipse(x, y - rowHeight, 2,2);
+//          x += colWidth/5; 
+//      }
+
 
   // 0.00 - 0.2 Magnitude
   x = 200;
@@ -173,7 +175,9 @@ function setup() {
       // let maptableToYearsLength = map(table1.getRowCount(), 0 ,table1.getRowCount(), 0, years.length-2);
       // print(maptableToYearsLength);
       // Loop through and determine match between country and day of week and color accordingly
-          if (magRange === "0-0.199"){
+          if (table2019.getColumn('mag_range') === "0-0.199"){
+          return table2019.get
+          
           fill('#fed976');
           rect(x, y + increment, 2, 20);
           x += 5;
