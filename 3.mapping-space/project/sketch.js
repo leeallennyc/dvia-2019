@@ -1,12 +1,18 @@
 //Declare variables
-var table; // <-- all_month.csv data
+var table2019; // <-- all_month.csv data
+var table2018; //<-- create 2018 quake Table
+var table2017; //<-- create 2017 quake Table
+
 var geoJSONDataDay; // <-- significant_day.geojson data from USGS 
 var geoJSONDataWeek; // <-- significant_week.geojson data from USGS 
 var geoJSONDataMonth; // <-- significant_month.geojson data from USGS 
 var geoJSONDataMonthAll; // <-- all_month.geojson data from USGS 
+
 // var volcanos; // <-- Volcanic data from Harvard (https://earthworks.stanford.edu/catalog/harvard-glb-volc)
 var volcanosData; // <-- Global Volcanism Program, 2013. Volcanoes of the World, v. 4.8.4. Venzke, E (ed.). Smithsonian Institution. Downloaded 07 Dec 2019. https://doi.org/10.5479/si.GVP.VOTW4-2013
+
 var globe; // <--  Leaflet.JS Map
+
 var getColorQuakes; // <-- declared as Global for Quake color
 var getColorVolcs; // <-- declared as Global for Volcano color
 
@@ -14,8 +20,12 @@ var getColorVolcs; // <-- declared as Global for Volcano color
 // Preload
 function preload() {
  
-    // load the CSV data into our `table` variable and clip out the header row
-    table = loadTable("../data/all_month.csv", "csv", "header");
+    // load the CSV data into our `table2019` variable and clip out the header row
+    table2019 = loadTable("2019_all_month.csv", "csv", "header");
+    //  // load number of quakes per mag by number 2018
+    table2018 = loadTable("2018_all_month.csv", "csv", "header");
+    //  // load number of quakes per mag by number 2017
+    table2017 = loadTable("2017_all_month.csv", "csv", "header");
     //load significant_day.geojson Quake file into geoJSONData variable
     // geoJSONDataDay = loadJSON('../data/significant_day.geojson');
     //load significant_week.geojson Quake file into geoJSONData variable
@@ -38,13 +48,13 @@ function setup() {
     title.parent('title');
 
     // Setup canvas1 and connect to "canvas1" div
-    let canvas1 = createCanvas(displayWidth, 1000);
+    let canvas1 = createCanvas(5000, 2500);
     canvas1.parent('container1');
    
     // first, call our map initialization function (look in the html's style tag to set its dimensions)
     setupMap();
 
-    // call our function (defined below) that populates the maps with markers based on the table contents
+    // call our function (defined below) that populates the maps with markers based on the table2019 contents
     // addCircles();
 
     // before querying the Tectonic plate/fault data, you need to let it know which map you're using
@@ -89,7 +99,365 @@ function setup() {
     // Call instances of new Containers
     let newContainer1 = new p5(container1);
     let newContainer2 = new p5(container2);
-  
+     // set up typography
+     textFont("Rokkitt");
+     textSize(14);
+     fill(60);
+     noStroke();
+ 
+ 
+    // set up x, y, rowHeight, and colWidth
+    let x = 200;
+    let y = 550;
+    let rowHeight = 45;
+    let colWidth = 40;
+    let colWidth2 = 5;
+    
+    let increment = 40;
+    let opacity = 90;
+
+    let magRange = ["0 - 0.199", "0.2 - 0.99", "1.00 - 1.99", "2.00 - 2.99", "3.00 - 4.99", "5.00 - 5.99", "6 +"];
+    let volcEXplIndex = [" "]
+    let numOfQuakes = ["0", "250", "500", "750", "1000", "1250", "1500", "1750", "2000", "2250", "2500", "2750", "3000", "3250", "3500", "3750", "4000","4250", "4500", "4750", "5000", "5250", "5500"];
+
+
+    // BAR CHART FOR MAGNITUDE All MONTH 2019
+
+    // Set Text Style and alignment
+    textStyle(BOLD);
+    textAlign(CENTER);
+    for (let i = 0; i<magRange.length; i++) {
+    text(magRange[i], x-100, y);
+    y += rowHeight;
+    } 
+ 
+    // Draw out the numOfQuakes range from numOfQuakes array
+    x = 160;
+    y = 900;
+    textStyle(BOLD);
+    textSize(12);
+    textAlign(CENTER);
+    for (let d = 0; d<numOfQuakes.length; d++){
+        text(numOfQuakes[d], x, y-rowHeight);
+        x += colWidth;
+    }
+ 
+ 
+      //  Draw ticks to fit number of quakes
+    x = 160;
+    y = 910;
+    for (let t = 0; t < numOfQuakes.length; t++){
+        fill("orange");
+        noStroke();
+        rect(x, y - rowHeight, 1, 10);
+        x += colWidth;
+    }
+    
+    //  Draw  ticks to fit the 5 year span
+    x = 161;
+    y = 915;
+      for (let m = 0; m < (numOfQuakes.length*5) - 4; m++){
+          fill("orange");
+          ellipse(x, y - rowHeight, 1, 1);
+          x += colWidth/5;
+      }
+ 
+ 
+    // 0.00 - 0.2 Magnitude
+    x = 160;
+    y = 495;
+   
+    for (let r=0; r < table2019.getRowCount(); r++) {
+            let mag = table2019.getString(r, 4);
+        // let maptableToYearsLength = map(table1.getRowCount(), 0 ,table1.getRowCount(), 0, years.length-2);
+        // print(maptableToYearsLength);
+        // Loop through and determine match between country and day of week and color accordingly
+            if (mag < 0.19){
+                // var isTrue;
+                // var count = _.filter(mag, function(isTrue) { if (isTrue.mag < 0.19) return isTrue}).length;
+                // console.log("There are :" + mag + "Earthquakes, with a magnitude less than 0.19");
+                noStroke();
+                fill("#fed976");
+                rect(x, y + increment, 0.25, 20);
+                x += 0.25;
+                // console.log(isTrue);
+            } 
+        }
+
+        // 0.2 - 0.99 Magnitude
+    x = 160;
+    y += rowHeight;
+   
+   for (let r=0; r < table2019.getRowCount(); r++) {
+           let mag = table2019.getString(r, 4);
+       // let maptableToYearsLength = map(table1.getRowCount(), 0 ,table1.getRowCount(), 0, years.length-2);
+       // print(maptableToYearsLength);
+       // Loop through and determine match between country and day of week and color accordingly
+           if (mag > 0.19 && mag < 0.99){
+            noStroke();
+            fill("#feb24c");
+            rect(x, y + increment, 0.25, 20);
+            x += 0.25;         
+        }
+    }
+   
+    // 1.00 - 1.99 Magnitude
+    x = 160;
+    y += rowHeight;
+    
+    for (let r=0; r < table2019.getRowCount(); r++) {
+            let mag = table2019.getString(r, 4);
+        // let maptableToYearsLength = map(table1.getRowCount(), 0 ,table1.getRowCount(), 0, years.length-2);
+        // print(maptableToYearsLength);
+        // Loop through and determine match between country and day of week and color accordingly
+            if (mag > 0.99 && mag < 1.99){
+                noStroke();
+                fill("#fd8d3c");
+                rect(x, y + increment, 0.25, 20);
+                x += 0.25;
+            }
+    }
+
+    // 2.00 - 2.99 Magnitude
+    x = 160;
+    y += rowHeight;
+
+    for (let r=0; r < table2019.getRowCount(); r++) {
+            let mag = table2019.getString(r, 4);
+        // let maptableToYearsLength = map(table1.getRowCount(), 0 ,table1.getRowCount(), 0, years.length-2);
+        // print(maptableToYearsLength);
+        // Loop through and determine match between country and day of week and color accordingly
+            if (mag > 1.99 && mag < 2.99){
+                noStroke();
+                fill("#fc4e2a");
+                rect(x, y + increment, 0.25, 20);
+                x += 0.25;
+            }
+    }
+
+    // 3.00 - 4.99 Magnitude
+    x = 160;
+    y += rowHeight;
+
+    for (let r=0; r < table2019.getRowCount(); r++) {
+            let mag = table2019.getString(r, 4);
+        // let maptableToYearsLength = map(table1.getRowCount(), 0 ,table1.getRowCount(), 0, years.length-2);
+        // print(maptableToYearsLength);
+        // Loop through and determine match between country and day of week and color accordingly
+            if (mag > 2.99 && mag < 4.99){
+                noStroke();
+                fill("#e31a1c");
+                rect(x, y + increment, 0.25, 20);
+                x += 0.25;
+            }
+    }
+
+    // 5.00 - 5.99 Magnitude
+    x = 160;
+    y += rowHeight;
+
+    for (let r=0; r < table2019.getRowCount(); r++) {
+            let mag = table2019.getString(r, 4);
+        // let maptableToYearsLength = map(table1.getRowCount(), 0 ,table1.getRowCount(), 0, years.length-2);
+        // print(maptableToYearsLength);
+        // Loop through and determine match between country and day of week and color accordingly
+            if (mag > 4.99 && mag < 5.99){
+                noStroke();
+                fill("#bd0026");
+                rect(x, y + increment, 0.25, 20);
+                x += 0.25;
+            }
+    }
+
+    // 6 + Magnitude
+    x = 160;
+    y += rowHeight;
+
+    for (let r=0; r < table2019.getRowCount(); r++) {
+            let mag = table2019.getString(r, 4);
+        // let maptableToYearsLength = map(table1.getRowCount(), 0 ,table1.getRowCount(), 0, years.length-2);
+        // print(maptableToYearsLength);
+        // Loop through and determine match between country and day of week and color accordingly
+            if (mag > 5.99){
+                noStroke();
+                fill("#800026");
+                rect(x, y + increment, 0.25,20);
+                x += 0.25;         
+            } 
+    }
+       // BAR CHART FOR MAGNITUDE All MONTH 2019 END  ----------------------------
+
+       // BAR CHART FOR MAGNITUDE All MONTH 2018 BEGIN  --------------------------
+
+       // Set Text Style and alignment
+    x = 200;
+    y = 1055;
+
+    for (let i = 0; i<magRange.length; i++) {
+    textStyle(BOLD);
+    textAlign(CENTER);
+    textSize(12);
+    color(255);
+    text(magRange[i], x-100, y);
+    y += rowHeight;
+    } 
+ 
+    // Draw out the numOfQuakes range from numOfQuakes array
+    x = 160;
+    y = 1400;
+    textStyle(BOLD);
+    textSize(12);
+    textAlign(CENTER);
+    for (let d = 0; d<numOfQuakes.length; d++){
+        text(numOfQuakes[d], x, y-rowHeight);
+        x += colWidth;
+    }
+ 
+ 
+    //  Draw ticks to fit number of quakes
+    x = 160;
+    y = 1415;
+    for (let t = 0; t < numOfQuakes.length; t++){
+        fill("orange");
+        noStroke();
+        rect(x, y - rowHeight, 1, 10);
+        x += colWidth;
+    }
+    
+    //  Draw  ticks to fit the 5 year span
+    x = 161;
+    y = 1415;
+      for (let m = 0; m < (numOfQuakes.length*5) - 4; m++){
+          fill("orange");
+          ellipse(x, y - rowHeight, 1, 1);
+          x += colWidth/5;
+      }
+ 
+ 
+    // 0.00 - 0.2 Magnitude
+    x = 160;
+    y = 1000;
+   
+    for (let r=0; r < table2018.getRowCount(); r++) {
+            let mag = table2018.getString(r, 4);
+        // let maptableToYearsLength = map(table1.getRowCount(), 0 ,table1.getRowCount(), 0, years.length-2);
+        // print(maptableToYearsLength);
+        // Loop through and determine match between country and day of week and color accordingly
+            if (mag < 0.19){
+                // var isTrue;
+                // var count = _.filter(mag, function(isTrue) { if (isTrue.mag < 0.19) return isTrue}).length;
+                // console.log("There are :" + mag + "Earthquakes, with a magnitude less than 0.19");
+                noStroke();
+                fill("#fed976");
+                rect(x, y + increment, 0.25, 20);
+                x += 0.25;
+                // console.log(isTrue);
+            } 
+        }
+
+        // 0.2 - 0.99 Magnitude
+    x = 160;
+    y += rowHeight;
+   
+   for (let r=0; r < table2018.getRowCount(); r++) {
+           let mag = table2018.getString(r, 4);
+       // let maptableToYearsLength = map(table1.getRowCount(), 0 ,table1.getRowCount(), 0, years.length-2);
+       // print(maptableToYearsLength);
+       // Loop through and determine match between country and day of week and color accordingly
+           if (mag > 0.19 && mag < 0.99){
+            noStroke();
+            fill("#feb24c");
+            rect(x, y + increment, 0.25, 20);
+            x += 0.25;         
+        }
+    }
+   
+    // 1.00 - 1.99 Magnitude
+    x = 160;
+    y += rowHeight;
+    
+    for (let r=0; r < table2018.getRowCount(); r++) {
+            let mag = table2018.getString(r, 4);
+        // let maptableToYearsLength = map(table1.getRowCount(), 0 ,table1.getRowCount(), 0, years.length-2);
+        // print(maptableToYearsLength);
+        // Loop through and determine match between country and day of week and color accordingly
+            if (mag > 0.99 && mag < 1.99){
+                noStroke();
+                fill("#fd8d3c");
+                rect(x, y + increment, 0.25, 20);
+                x += 0.25;
+            }
+    }
+
+    // 2.00 - 2.99 Magnitude
+    x = 160;
+    y += rowHeight;
+
+    for (let r=0; r < table2018.getRowCount(); r++) {
+            let mag = table2018.getString(r, 4);
+        // let maptableToYearsLength = map(table1.getRowCount(), 0 ,table1.getRowCount(), 0, years.length-2);
+        // print(maptableToYearsLength);
+        // Loop through and determine match between country and day of week and color accordingly
+            if (mag > 1.99 && mag < 2.99){
+                noStroke();
+                fill("#fc4e2a");
+                rect(x, y + increment, 0.25, 20);
+                x += 0.25;
+            }
+    }
+
+    // 3.00 - 4.99 Magnitude
+    x = 160;
+    y += rowHeight;
+
+    for (let r=0; r < table2018.getRowCount(); r++) {
+            let mag = table2018.getString(r, 4);
+        // let maptableToYearsLength = map(table1.getRowCount(), 0 ,table1.getRowCount(), 0, years.length-2);
+        // print(maptableToYearsLength);
+        // Loop through and determine match between country and day of week and color accordingly
+            if (mag > 2.99 && mag < 4.99){
+                noStroke();
+                fill("#e31a1c");
+                rect(x, y + increment, 0.25, 20);
+                x += 0.25;
+            }
+    }
+
+    // 5.00 - 5.99 Magnitude
+    x = 160;
+    y += rowHeight;
+
+    for (let r=0; r < table2018.getRowCount(); r++) {
+            let mag = table2018.getString(r, 4);
+        // let maptableToYearsLength = map(table1.getRowCount(), 0 ,table1.getRowCount(), 0, years.length-2);
+        // print(maptableToYearsLength);
+        // Loop through and determine match between country and day of week and color accordingly
+            if (mag > 4.99 && mag < 5.99){
+                noStroke();
+                fill("#bd0026");
+                rect(x, y + increment, 0.25, 20);
+                x += 0.25;
+            }
+    }
+
+    // 6 + Magnitude
+    x = 160;
+    y += rowHeight;
+
+    for (let r=0; r < table2018.getRowCount(); r++) {
+            let mag = table2018.getString(r, 4);
+        // let maptableToYearsLength = map(table1.getRowCount(), 0 ,table1.getRowCount(), 0, years.length-2);
+        // print(maptableToYearsLength);
+        // Loop through and determine match between country and day of week and color accordingly
+            if (mag > 5.99){
+                noStroke();
+                fill("#800026");
+                rect(x, y + increment, 0.25,20);
+                x += 0.25;         
+            } 
+    }
+
+
 
     // create a color scale we can use for assigning colors based on magnitude and volcanic activity
     var magScale = chroma.scale('YlOrRd').mode('lch').domain([0, 10]);
@@ -112,7 +480,7 @@ function setup() {
       circle(0,0, quake.mag * 4);
   
       // draw a line for the depth
-      stroke(60);
+      stroke(0);
       strokeWeight(2);
       line(20,0, 20+quake.depth/30, 0);
   
@@ -121,7 +489,8 @@ function setup() {
       fill(100);
       textSize(10);
       textStyle(ITALIC);
-      text(quake.place, 45, 4);
+      textAlign(LEFT);
+      text(quake.place, 20, 4);
 
       // use translate to change position before looping to draw the next quake
       var maxRows = 12;
@@ -151,42 +520,42 @@ function setupMap(){
         // zoomSnap: 0,
     }).addTo(globe);
 
-    // // Create Zoom/Storytelling on different locations near the ring of fire. * Needs work
-    // var ringOfFlying = [
-    //     // California Zooming
-    //     { latlng: [35.77929, -117.696247], zoom: 5.5 },
-    //     { latlng: [35.77929, -117.696247], zoom: 5 },
-    //     // Alaska Zoom
-    //     { latlng: [60.232746, -139.348919], zoom: 5.5 },
-    //     // Alaska Zoom Detail
-    //     { latlng: [61.14405, -150.507916], zoom: 6 },
-    //     // Alaska Zoom Volcanos
-    //     { latlng: [57.570225, -161.71807], zoom: 4 },
-    //     // Japan Zoom
-    //     { latlng: [49.210813, -197.850097], zoom: 4 },
-    //     { latlng: [48.638587, -207.378766], zoom: 5.5 },
-    //     // Japan Detail
-    //     { latlng: [38.99604, -216.440155], zoom: 5.5 },
-    //     { latlng: [36.956305, -210.440155], zoom: 3.5 },
-    //     // Back to Start
-    //     { latlng: [45.160507, -178], zoom: 2.5}
-    //    ];
+    // Create Zoom/Storytelling on different locations near the ring of fire. * Needs work
+    var ringOfFlying = [
+        // California Zooming
+        { latlng: [35.77929, -117.696247], zoom: 5.5 },
+        { latlng: [35.77929, -117.696247], zoom: 5 },
+        // Alaska Zoom
+        { latlng: [60.232746, -139.348919], zoom: 5.5 },
+        // Alaska Zoom Detail
+        { latlng: [61.14405, -150.507916], zoom: 6 },
+        // Alaska Zoom Volcanos
+        { latlng: [57.570225, -161.71807], zoom: 4 },
+        // Japan Zoom
+        { latlng: [49.210813, -197.850097], zoom: 4 },
+        { latlng: [48.638587, -207.378766], zoom: 5.5 },
+        // Japan Detail
+        { latlng: [38.99604, -216.440155], zoom: 5.5 },
+        { latlng: [36.956305, -210.440155], zoom: 3.5 },
+        // Back to Start
+        { latlng: [45.160507, -178], zoom: 2.5}
+       ];
        
-    //    var flightNumber = 0;
+       var flightNumber = 0;
        
-    //    setInterval(function() {
+       setInterval(function() {
        
-    //      // flyTo the n-th flight destination
-    //      globe.flyTo(ringOfFlying[flightNumber].latlng, ringOfFlying[flightNumber].zoom );
+         // flyTo the n-th flight destination
+         globe.flyTo(ringOfFlying[flightNumber].latlng, ringOfFlying[flightNumber].zoom );
        
-    //      // The next iteration flys to the next flight destination
-    //      flightNumber++;
+         // The next iteration flys to the next flight destination
+         flightNumber++;
        
-    //      // The first element is zero and the last valid element is the (length - 1)-th. 
-    //      if (flightNumber >= ringOfFlying.length) {
-    //         globe.setView([45.160507, -178],  2.5);
-    //      }
-    //    }, 10000);
+         // The first element is zero and the last valid element is the (length - 1)-th. 
+         if (flightNumber >= ringOfFlying.length) {
+            globe.setView([45.160507, -178],  2.5);
+         }
+       }, 10000);
     
     // return color based on volcanic activity for Legend
     let getColorVolcs = function(d) {
@@ -202,13 +571,13 @@ function setupMap(){
     
     // return color based on earthquake activity for Legend
     let getColorQuakes = function(d) {
-        return d > 8.0  ? '#800026' :
-            d > 7.5  ? '#bd0026' :
-            d > 6.0  ? '#e31a1c' :
-            d > 4.5  ? '#fc4e2a' :
-            d > 3.0  ? '#fd8d3c' :
-            d > 1.5  ? '#feb24c' :
-            d > 0.0  ? '#fed976' :
+        return d > 6  ? '#800026' :
+            d > 5.99  ? '#bd0026' :
+            d > 4.99  ? '#e31a1c' :
+            d > 2.99  ? '#fc4e2a' :
+            d > 1.99  ? '#fd8d3c' :
+            d > .99  ? '#feb24c' :
+            d > 0.2  ? '#fed976' :
                        '#fed976' ;
     };
     
