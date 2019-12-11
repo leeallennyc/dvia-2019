@@ -151,25 +151,25 @@ function setupMap(){
         // zoomSnap: 0,
     }).addTo(globe);
 
-    // // Create Zoom/Storytelling on different locations near the ring of fire. * Need to break the loop at the end of the cycle * Needs work
+    // // Create Zoom/Storytelling on different locations near the ring of fire. * Needs work
     // var ringOfFlying = [
     //     // California Zooming
-    //     { latlng: [35.77929, -117.696247], zoom: 10 },
-    //     { latlng: [35.77929, -117.696247], zoom: 6 },
+    //     { latlng: [35.77929, -117.696247], zoom: 5.5 },
+    //     { latlng: [35.77929, -117.696247], zoom: 5 },
     //     // Alaska Zoom
-    //     { latlng: [60.232746, -139.348919], zoom: 4 },
+    //     { latlng: [60.232746, -139.348919], zoom: 5.5 },
     //     // Alaska Zoom Detail
-    //     { latlng: [61.14405, -150.507916], zoom: 9 },
+    //     { latlng: [61.14405, -150.507916], zoom: 6 },
     //     // Alaska Zoom Volcanos
-    //     { latlng: [57.570225, -161.71807], zoom: 5 },
+    //     { latlng: [57.570225, -161.71807], zoom: 4 },
     //     // Japan Zoom
-    //     { latlng: [49.210813, -197.850097], zoom: 5 },
-    //     { latlng: [48.638587, -207.378766], zoom: 7 },
+    //     { latlng: [49.210813, -197.850097], zoom: 4 },
+    //     { latlng: [48.638587, -207.378766], zoom: 5.5 },
     //     // Japan Detail
-    //     { latlng: [38.99604, -216.440155], zoom: 5},
-    //     { latlng: [36.956305, -210.440155], zoom: 3.5},
+    //     { latlng: [38.99604, -216.440155], zoom: 5.5 },
+    //     { latlng: [36.956305, -210.440155], zoom: 3.5 },
     //     // Back to Start
-    //     { latlng: [45.160507, -178], zoom: 2.5 }
+    //     { latlng: [45.160507, -178], zoom: 2.5}
     //    ];
        
     //    var flightNumber = 0;
@@ -184,7 +184,7 @@ function setupMap(){
        
     //      // The first element is zero and the last valid element is the (length - 1)-th. 
     //      if (flightNumber >= ringOfFlying.length) {
-    //        flightNumber = 0;
+    //         globe.setView([45.160507, -178],  2.5);
     //      }
     //    }, 10000);
     
@@ -192,10 +192,10 @@ function setupMap(){
     let getColorVolcs = function(d) {
     return d > 6.0  ? '#252525' :
         d > 5.0  ? '#081d58' :
-        d > 4.0  ? '#253494' :
-        d > 3.0  ? '#225ea8' :
-        d > 2.0  ? '#1d91c0' :
-        d > 1.0  ? '#41b6c4' :
+        d > 3.0  ? '#253494' :
+        d > 2.0  ? '#225ea8' :
+        d > 1.0  ? '#1d91c0' :
+        d > 0.2  ? '#41b6c4' :
         d > 0.0  ? '#7fcdbb' :
                    '#7fcdbb' ;
     };
@@ -217,7 +217,7 @@ function setupMap(){
     legend.onAdd = function (globe) {
     
         var  div =  L.DomUtil.create('div', 'info  legend'),
-        scales =  [0, 1.5, 3, 4.5, 6.0, 7.5, 8.0],
+        scales =  [0.0, 0.2, 1.0, 2.0, 3.0, 5.0, 6.0],
         labels =  [];
     
         for  (let i = 0; i<scales.length;  i++) {
