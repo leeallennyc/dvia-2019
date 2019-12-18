@@ -123,6 +123,7 @@ function setup() {
     let opacity = 90;
 
     let magRange = ["0-0.199", "0.2-0.99", "1.00-1.99", "2.00-2.99", "3.00-4.99", "5.00-5.99", "6+"];
+    let volcEXplIndex = [""]
     let numOfQuakes = ["0", "250", "500", "750", "1000", "1250", "1500", "1750", "2000", "2250", "2500", "2750", "3000", "3250", "3500", "3750", "4000","4250", "4500", "4750", "5000", "5250", "5500"];
 
     // Set Text Style and alignment
@@ -176,7 +177,7 @@ function setup() {
       // print(maptableToYearsLength);
       // Loop through and determine match between country and day of week and color accordingly
           if (table2019.getColumn('mag_range') === "0-0.199"){
-          return table2019.get
+          return table.
           
           fill('#fed976');
           rect(x, y + increment, 2, 20);

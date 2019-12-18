@@ -6,110 +6,116 @@
     html, body {
       width: 100%;
       height: 100%;
-      margin: 0 auto;
+      margin-top: 8px;
     }
 
     #title{
       display: flex;
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin-top: 12px;
       justify-content: center;
-      width: 100%;
-      height: 50px;
+      width: 1200px;
+      margin-left: 5%;
+      margin-right: 5%;
+      height: 60px;
       font-family: Georgia, 'Times New Roman', Times, serif;
       font-size: 40px;
       color: black;
     }
 
+    #summaryTitle {
+      margin-top: 60px;
+      text-align: center;
+      width: 1200px;
+      height: 40px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 24px;
+      color: darkslategrey;
+    }
+
     /* default dimensions for the leaflet map */
     #Esri_WorldGrayCanvas{
-      margin: auto;
-      width: 100%;
+      width: 1200px;
+      margin-left: 5%;
+      margin-right: 5%;
       height: 600px;
     }
-/* 
+
     #canvas1 {
-      display: inline-block;
-      margin: 0;
-      height: 600;
-      width: 400;
-      border-style: solid;
-      border-color: gray;
-    }  */
-
-     #container1 {
-      display: inline-block;
-      /* position: absolute; */
-      margin: 0;
-      height: 2500px;
-      width: 100%;
+      position: relative;
+      vertical-align: middle;
+      height: 900px;
+      width: 1200px;
+      margin-left: 5%;
+      margin-right: 5%;
       border-style: solid;
       border-width: 0.25px;
-      border-color: red;
+      border-color:lightblue;
+      z-index: -9999;
     } 
 
-    #container2 {
-      display: inline-block;
-      /* position: absolute; */
-      margin: 0;
-      height: 2500px;
-      width: 100%;
+      /* #container1 {
+      position: relative;
+      vertical-align: middle;
+      margin-top: 300px;
+      height: 2000px;
+      width: 1150px;
       border-style: solid;
       border-width: 0.25px;
-      border-color: gray;
-    } 
+      border-color: peru;
+ 
+    }   */
 
-    #container3 {
+    /* #summary {
+      position: relative;
       display: inline-block;
-      /* position: absolute; */
-      margin: 0;
-      height: 600;
-      width: 100%;
-      border-style: solid;
-      border-color: orange;
-    } 
+      vertical-align: middle;
+      width: 99%;
+      height: 1000px;
+      font: 14px Georgia, 'Times New Roman', Times, serif;
+      line-height: 1.7em;
+      text-align: left;
+      border-style: dotted;
+      border-color: green;
+      z-index: -9999;
+    } */ 
 
     .info {
-      width: 100px;
-      height: 100px;
-      padding: 6px 8px;
+      width: 80px;
+      padding: 15px 20px;
       font: 14px/16px Arial, Helvetica, sans-serif;
       background: white;
-      background: rgba(255,255,255,0.8);
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      border-radius: 5px;
+      background: #fffefe80;
+      box-shadow: 0 0 15px rgba(230, 221, 221, 0.);
+      border-radius: 10px;
+      margin-right: 10px;
     }
-    /* .info h4 {
-      margin: 0 0 5px;
+
+    h2 {
+      font: 30px Georgia, 'Times New Roman', Times, serif;
+      text-align: center;
+      padding-top: 20px;
+      padding-bottom: 15px;
+    }
+
+
+    .info h4 {
+      margin: 0 auto;
+      font: 14px Georgia, 'Times New Roman', Times, serif;
+      padding: 7px;
       color: #777
-    } */
+    }
 
     .legend {
-      width: 50px;
-      height: 190px;
-      line-height: 16px;
+      line-height: 15px;
       color: #555;
-    }
-    .legend2 {
-      width: 50px;
-      height: 190px;
-      line-height: 16px;
-      color: #555;
+
     }
 
-    .legend i {
-      width: 12px;
-      height: 12px;
+     .legend i {
+      width: 14px;
+      height: 14px;
       float: left;
-      margin-right: 2px;
-      opacity: 0.6;
-    }
-
-    .legend2 i {
-      width: 12px;
-      height: 12px;
-      float: left;
-      margin-right: 2px;
+      margin-right: 8px;
       opacity: 0.6;
     }
 
@@ -117,6 +123,185 @@
       font-size: 14px;
     }
 
+    #button-wrapper {
+      position: absolute;
+      display: inline-block;
+      height: 600px;
+      margin-top: 400px;
+      width: 160px; 
+      z-index: 9999;
+  }
+
+    #home-btn {
+      position: relative;
+      display: inline-flex;
+      height: 25px;
+      width: 145px;
+      border-radius: 30px;
+      text-align: center;
+      margin-top: 6px;
+      padding-left: 28px;
+      vertical-align: middle;
+      font: 14px Helvetica, sans-serif;
+      color: peru;
+      opacity: 60%;
+      z-index: 9999;
+  }
+
+    #california-btn {
+      position: relative;
+      display: inline-flex;
+      height: 25px;
+      width: 145px;
+      border-radius: 30px;
+      text-align: center;
+      margin-top: 6px;
+      padding-left: 25px;
+      vertical-align: middle;
+      font: 14px Helvetica, sans-serif;
+      color: peru;
+      opacity: 60%;
+      z-index: 9999;
+    }
+
+    #alaska-btn {
+      position: relative;
+      display: inline-flex;
+      height: 25px;
+      width: 145px;
+      border-radius: 30px;
+      margin-top: 6px;
+      padding-left: 35px;
+      vertical-align: middle;
+      text-align: center;
+      font: 14px Helvetica, sans-serif;
+      color: peru;
+      opacity: 60%;
+      z-index: 9999;
+    }
+
+    #aleutianislands-btn {
+      position: relative;
+      display: inline-flex;
+      height: 25px;
+      width: 145px;
+      border-radius: 30px;
+      margin-top: 6px;
+      vertical-align: middle;
+      text-align: center;
+      font: 14px Helvetica, sans-serif;
+      color: peru;
+      opacity: 60%;
+      z-index: 9999;
+    }
+
+    #japan-btn {
+      position: relative;
+      display: inline-flex;
+      height: 25px;
+      width: 145px;
+      border-radius: 30px;
+      margin-top: 6px;
+      padding-left: 40px;
+      vertical-align: middle;
+      text-align: center;
+      font: 14px Helvetica, sans-serif;
+      color: peru;
+      opacity: 60%;
+      z-index: 9999;
+    }
+
+    #philippines-btn {
+      position: relative;
+      display: inline-flex;
+      height: 25px;
+      width: 145px;
+      border-radius: 30px;
+      margin-top: 6px;
+      padding-left: 22px;
+      vertical-align: middle;
+      text-align: center;
+      font: 14px Helvetica, sans-serif;
+      color: peru;
+      opacity: 60%;
+      z-index: 9999;
+    }
+
+    div.risingPopup {
+      width:450px;
+      height: 250px;
+      border-radius: 15px;
+      position: absolute !important;
+      bottom: 225px;
+      left: 10px;
+      z-index: 9999;
+      background-color: floralwhite;
+      padding: 15px;
+      opacity: 0.8;
+      overflow-y: auto;
+
+      animation-duration: 0.4s;
+      animation-name: rise;
+      animation-iteration-count: 1;
+    }
+
+    @keyframe rise {
+      0% {
+        opacity: 0;
+        bottom: -30px;
+      }
+      
+      100% {
+        opacity: 0.8;
+        bottom: 30px;
+      }
+    }
+
+    div.risingPopupHome {
+      width: 450px;
+      height: 250px;
+      border-radius: 15px;
+      position: absolute !important;
+      bottom: 225px;
+      left: 10px;
+      z-index: 9999;
+      background-color: floralwhite;
+      padding: 15px;
+      opacity: 0.8;
+      overflow-y: auto;
+      z-index: 9999;
+
+      animation-duration: 0.4s;
+      animation-name: rise;
+      animation-iteration-count: 1;
+    }
+
+    .button-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+  
+    }
+
+    @keyframe rise {
+      0% {
+        opacity: 0;
+        bottom: -30px;
+      }
+      
+      100% {
+        opacity: 0.8;
+        bottom: 30px;
+      }
+
+    }
+    .custom-modal-container {
+      position: absolute !important;
+      height: 220px;
+      padding: 10px;
+      color: black;
+      overflow-y: auto;
+    }
   </style>
 </head>
 <body>
@@ -125,42 +310,57 @@
   <div id = "title"></div>
   <!-- The container div for our leaflet map -->
   <div id = "Esri_WorldGrayCanvas">
+      <div id="homeModal" style="display: none;" class="risingPopupHome" >
+        <div class="button-header">
+          <div class = "custom-modal-container">
+              <button id="homeModalButton" style="height: 20px; margin-left: 385px;" type="button">Close</button>
+              <div style="font-size: 14px;"><strong>What is the Ring of Fire?</strong></div>
+              <p>The Ring of fire consists of over 25,000 miles of near continous earthquakes, volcanic activity, and plate movements mostly along the Pacific Plate boundaries.<br><br>
+                It contains 452 active volcanos, and 90% of the world's earthquakes. According to the U.S. Geological Survey (USGS), about 81% of the world's
+                largest earthquakes occur along the Ring of Fire.<br><br>Click below and hover over each location to learn more about the areas near the The Ring of Fire. 
+              </p>
+          </div>
+        </div>
+      </div>
+      <!-- <div id="californiaModal" style="display: none;" class="risingPopupHome">
+          <div class = "custom-modal-container">
+            <div style="font-size: 14px;"><strong>California</strong></div>
+                <p>California Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam consectetur omnis ipsam dignissimos quas ratione dolor, 
+                  nemo neque et ea, in doloribus sapiente error minus deserunt quisquam aliquam temporibus itaque?.<br><br>
+                  Click below to learn more about some of area along The Ring of Fire. 
+                </p>
+          </div>
+      </div> -->
+     <div id = "button-wrapper">
+          <input type="button" id="home-btn" value ="START HERE" class="btnStyle"/>
+          <input type="button" id="california-btn" value ="CALIFORNIA" class="btnStyle"/>
+          <input type="button" id="alaska-btn" value ="ALASKA" class="btnStyle"/>
+          <input type="button" id="aleutianislands-btn" value ="ALEUTIAN ISLANDS" class="btnStyle"/>
+          <input type="button" id="japan-btn" value ="JAPAN" class="btnStyle"/>
+          <input type="button" id="philippines-btn" value ="PHILIPPINES" class="btnStyle"/>
+      </div>
       <!-- <div class = "info"> -->
       <div class = "legend"></div>
       <div class = "legend2"></div>
       <!-- <h4 class = "info h4"></h4>   -->
   </div>
   <!--  The container div for canvas1 -->
-  <!-- <div id="canvas1"></div> -->
-  <div id="container1"></div>
-  <div id="container2"></div> 
-  <!-- <div id="container3"></div>   -->
-  
+  <div id="canvas1">
+    <div id = "summaryTitle">EARTHQUAKES BY NUMBER AND MAGNITUDE</div>
+    </div> 
+</div>
  
   
-  <!-- <div id ="query" class= "leaflet-bar">
-      <label>
-        <select id = "natural_disaster">
-          <option value = "1=1">Any</option>
-          <option value = "Natural_Disaster_Type = 'Earthquake' ">Earthquake</option>
-          <option value = "Natural_Disaster_Type = 'Volcano' ">Volcano</option>
-        </select>
-      </label> -->
-  </div>
-  
-
-
   <!-- load our dependencies and sketch file -->
   <script src="../libraries/p5.min.js"></script>
   <script src="../libraries/p5.dom.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="../libraries/lodash.min.js"></script>
   <script src="../libraries/brewer.js"></script>
   <script src="../libraries/chroma.min.js"></script>
   <script src="../libraries/leaflet/leaflet.js"></script>
-  <script src="sample-geojson.js" type="text/javascript"></script>
   <script src="../libraries/tectonic.js"></script>
   <script src="sketch.js"></script>
- 
 
   <!-- p5.js will create a canvas element here at runtime -->
 </body>

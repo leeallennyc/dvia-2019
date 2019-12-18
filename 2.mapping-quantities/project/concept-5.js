@@ -75,6 +75,7 @@ function setup(){
     textAlign(CENTER);
     textSize(40);
     fill(255);
+    textFont('Georgia');
     text(title, 385, 130);
     
     // Set Increment/Rowheight/Rectangle X and Y size
@@ -303,7 +304,7 @@ function setup(){
             rect(x, 200 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x, 200 + increment, rectDimX, rectDimY);
         }
         if (usaTuesday) {
@@ -313,7 +314,7 @@ function setup(){
             rect(x, 220 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x, 220 + increment, rectDimX, rectDimY);
         }
         if (usaWednesday) {
@@ -323,7 +324,7 @@ function setup(){
             rect(x, 240+ increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x, 240 + increment, rectDimX, rectDimY);
         }
         if (usaThursday) {
@@ -333,7 +334,7 @@ function setup(){
             rect(x, 260 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x, 260 + increment, rectDimX, rectDimY);
         }
         if (usaFriday) {
@@ -343,7 +344,7 @@ function setup(){
             rect(x, 280+ increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x, 280 + increment, rectDimX, rectDimY);
         }
         if (usaSaturday) {
@@ -353,7 +354,7 @@ function setup(){
             rect(x, 300 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x, 300 + increment, rectDimX, rectDimY);
         }
         if (usaSunday) {
@@ -363,7 +364,7 @@ function setup(){
             rect(x, 320 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x, 320 + increment, rectDimX, rectDimY);
         }
 
@@ -375,7 +376,7 @@ function setup(){
             rect(x, 360 + increment + countryGap, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x, 360 + increment + countryGap, rectDimX, rectDimY);
         }
         if (ussrTuesday) {
@@ -385,7 +386,7 @@ function setup(){
             rect(x, 380 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x, 380 + increment, rectDimX, rectDimY);
         }
         if (ussrWednesday) {
@@ -395,7 +396,7 @@ function setup(){
             rect(x, 400 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x, 400 + increment, rectDimX, rectDimY);
         }
         if (ussrThursday) {
@@ -405,7 +406,7 @@ function setup(){
             rect(x, 420 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x, 420 + increment, rectDimX, rectDimY);
         }
         if (ussrFriday) {
@@ -415,7 +416,7 @@ function setup(){
             rect(x, 440 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x, 440 + increment, rectDimX, rectDimY);
         }
         if (ussrSaturday) {
@@ -425,7 +426,7 @@ function setup(){
             rect(x, 460 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x, 460 + increment, rectDimX, rectDimY);
         }      
         if (ussrSunday) {
@@ -435,7 +436,7 @@ function setup(){
             rect(x, 480 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x, 480 + increment, rectDimX, rectDimY);
         }
 
@@ -447,7 +448,7 @@ function setup(){
             rect(x, 520 + increment + countryGap, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x, 520 + increment + countryGap, rectDimX, rectDimY);
         }
         if (ukTuesday) {
@@ -457,7 +458,7 @@ function setup(){
             rect(x, 540 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x, 540 + increment, rectDimX, rectDimY);
         }
         if (ukWednesday) {
@@ -467,7 +468,7 @@ function setup(){
             rect(x,  560 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  560 + increment, rectDimX, rectDimY);
         }
         if (ukThursday) {
@@ -477,7 +478,7 @@ function setup(){
             rect(x, 580 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x, 580 + increment, rectDimX, rectDimY);
         }
         if (ukFriday) {
@@ -487,7 +488,7 @@ function setup(){
             rect(x, 600 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  600 + increment, rectDimX, rectDimY);
         }
         if (ukSaturday) {
@@ -497,7 +498,7 @@ function setup(){
             rect(x,  620 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  620 + increment, rectDimX, rectDimY);
         }
         if (ukSunday) {
@@ -507,7 +508,7 @@ function setup(){
             rect(x,  640 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  640 + increment, rectDimX, rectDimY);
         }            
 
@@ -519,7 +520,7 @@ function setup(){
             rect(x,  680 + increment + countryGap, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  680 + increment + countryGap, rectDimX, rectDimY);
         }
         if (franceTuesday) {
@@ -529,7 +530,7 @@ function setup(){
             rect(x,  700 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  700 + increment, rectDimX, rectDimY);
         }
         if (franceWednesday) {
@@ -539,7 +540,7 @@ function setup(){
             rect(x,  720 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  720 + increment, rectDimX, rectDimY);
         }
         if (franceThursday) {
@@ -549,7 +550,7 @@ function setup(){
             rect(x,  740 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  740 + increment, rectDimX, rectDimY);
         }
         if (franceFriday) {
@@ -559,7 +560,7 @@ function setup(){
             rect(x,  760 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  760 + increment, rectDimX, rectDimY);
         }
         if (franceSaturday) {
@@ -569,7 +570,7 @@ function setup(){
             rect(x, 780 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  780 + increment, rectDimX, rectDimY);
         }
         if (franceSunday) {
@@ -579,7 +580,7 @@ function setup(){
             rect(x,  800 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  800 + increment, rectDimX, rectDimY);
         }    
 
@@ -592,7 +593,7 @@ function setup(){
             rect(x,  840 + increment + countryGap, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  840 + increment + countryGap, rectDimX, rectDimY);
         }
         if (chinaTuesday) {
@@ -602,7 +603,7 @@ function setup(){
             rect(x,  860 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  860 + increment, rectDimX, rectDimY);
         }
         if (chinaWednesday) {
@@ -612,7 +613,7 @@ function setup(){
             rect(x,  880 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  880 + increment, rectDimX, rectDimY);
         }
         if (chinaThursday) {
@@ -622,7 +623,7 @@ function setup(){
             rect(x,  900 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  900 + increment, rectDimX, rectDimY);
         }
         if (chinaFriday) {
@@ -632,7 +633,7 @@ function setup(){
             rect(x,  920 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  920 + increment, rectDimX, rectDimY);
         }
         if (chinaSaturday) {
@@ -642,7 +643,7 @@ function setup(){
             rect(x,  940 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  940 + increment, rectDimX, rectDimY);
         }
         if (franceSunday) {
@@ -652,7 +653,7 @@ function setup(){
             rect(x,  960 + increment, rectDimX, rectDimY);
         } else {
             noStroke();
-            fill(60);
+            fill(10);
             rect(x,  960 + increment, rectDimX, rectDimY);
         }  
 
@@ -700,7 +701,7 @@ function setup(){
     // function song(time) {
     //     // bassSynth.triggerAttackRelease('c3', '8n', time);
     //     console.log(time);
-    
+
 }
 
 
